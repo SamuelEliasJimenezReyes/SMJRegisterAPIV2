@@ -1,10 +1,10 @@
 ﻿using System.Runtime.Intrinsics.X86;
 using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.Room.Dtos;
-using SMJRegisterAPI.Features.Room.Repository;
+using SMJRegisterAPIV2.Features.Room.Dtos;
+using SMJRegisterAPIV2.Features.Room.Repository;
 
-namespace SMJRegisterAPI.Features.Room.Command;
+namespace SMJRegisterAPIV2.Features.Room.Command;
 
 public class CreateRoomCommandHandler(IRoomRepository repository, IMapper mapper) : IRequestHandler<CreateRoomCommand, CreateRoomDto>
 {

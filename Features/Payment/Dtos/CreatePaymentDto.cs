@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.Payment.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.Payment.Dtos;
 
 public class CreatePaymentDto
 {

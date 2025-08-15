@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.Church.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Church.Dtos;
 
-namespace SMJRegisterAPI.Features.Church.Mappings;
+namespace SMJRegisterAPIV2.Features.Church.Mappings;
 
 public class ChurchProfile : Profile
 {

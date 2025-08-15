@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using SMJRegisterAPI.Features.Camper.Command.Create;
-using SMJRegisterAPI.Features.GrantedCode.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Command.Create;
+using SMJRegisterAPIV2.Features.GrantedCode.Dtos;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Mappings;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Mappings;
 
 public class GrantedProfile : Profile
 {

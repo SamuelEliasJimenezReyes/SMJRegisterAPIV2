@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SMJRegisterAPI.Features.Room.Command.AutomaticSorterByCamperId;
+namespace SMJRegisterAPIV2.Features.Room.Command.AutomaticSorterByCamperId;
 
 public class AutomaticSorterByCamperIdCommand : IRequest<Unit>
 {

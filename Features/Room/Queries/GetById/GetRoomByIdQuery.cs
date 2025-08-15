@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Room.Dtos;
+using SMJRegisterAPIV2.Features.Room.Dtos;
 
-namespace SMJRegisterAPI.Features.Room.Queries.GetById;
+namespace SMJRegisterAPIV2.Features.Room.Queries.GetById;
 
 public class GetRoomByIdQuery : IRequest<RoomDto>
 {

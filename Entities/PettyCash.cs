@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Entities;
+﻿namespace SMJRegisterAPIV2.Entities;
 
 public class PettyCash
 {

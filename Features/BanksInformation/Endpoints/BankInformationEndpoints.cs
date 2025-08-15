@@ -1,11 +1,11 @@
 ﻿using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
-using SMJRegisterAPI.Features.BanksInformation.Dtos;
-using SMJRegisterAPI.Features.BanksInformation.Queries.GetAll;
-using SMJRegisterAPI.Features.BanksInformation.Queries.GetAllByConference;
+using SMJRegisterAPIV2.Features.BanksInformation.Dtos;
+using SMJRegisterAPIV2.Features.BanksInformation.Queries.GetAll;
+using SMJRegisterAPIV2.Features.BanksInformation.Queries.GetAllByConference;
 
-namespace SMJRegisterAPI.Features.BanksInformation.Endpoints;
+namespace SMJRegisterAPIV2.Features.BanksInformation.Endpoints;
 
 public class BankInformationEndpoints() : CarterModule("/bank-information")
 {

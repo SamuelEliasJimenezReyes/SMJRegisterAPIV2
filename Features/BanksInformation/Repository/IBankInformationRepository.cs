@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Features.Common;
+﻿using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.BanksInformation.Repository;
+namespace SMJRegisterAPIV2.Features.BanksInformation.Repository;
 
 public interface IBankInformationRepository : IGenericRepository<Entities.BanksInformation>
 {

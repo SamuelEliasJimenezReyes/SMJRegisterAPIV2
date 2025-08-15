@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.Church.Dtos;
-using SMJRegisterAPI.Features.Church.Repository;
+using SMJRegisterAPIV2.Features.Church.Dtos;
+using SMJRegisterAPIV2.Features.Church.Repository;
 
-namespace SMJRegisterAPI.Features.Church.Queries.GetAllByConference;
+namespace SMJRegisterAPIV2.Features.Church.Queries.GetAllByConference;
 
 public class GetAllChurchesByConferenceQueryHandler(IChurchRepository repository, IMapper mapper) : IRequestHandler<GetAllChurchesByConferenceQuery, IList<ChurchSimpleDTO>>
 {

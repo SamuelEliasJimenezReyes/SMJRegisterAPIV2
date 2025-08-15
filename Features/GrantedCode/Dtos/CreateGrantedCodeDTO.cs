@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.GrantedCode.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.GrantedCode.Dtos;
 
 public class CreateGrantedCodeDTO 
 {

@@ -2,10 +2,10 @@
 using AutoMapper;
 using Humanizer;
 using MediatR;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.Camper.Repository;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Repository;
 
-namespace SMJRegisterAPI.Features.Camper.Queries.GetById;
+namespace SMJRegisterAPIV2.Features.Camper.Queries.GetById;
 
 public class GetCamperByIdQueryHandler(ICamperRepository repository, IMapper mapper)
     : IRequestHandler<GetCamperByIdQuery, CamperDTO>

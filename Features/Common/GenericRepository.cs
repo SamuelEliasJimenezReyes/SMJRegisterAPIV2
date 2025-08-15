@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Common.Entities;
-using SMJRegisterAPI.Database.Contexts;
+using SMJRegisterAPIV2.Common.Entities;
+using SMJRegisterAPIV2.Database.Contexts;
 
-namespace SMJRegisterAPI.Features.Common;
+namespace SMJRegisterAPIV2.Features.Common;
 
 public class GenericRepository<T>(ApplicationDbContext context) : IGenericRepository<T>
     where T : BaseEntity

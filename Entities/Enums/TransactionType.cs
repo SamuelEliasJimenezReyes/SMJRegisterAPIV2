@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SMJRegisterAPI.Entities.Enums;
+namespace SMJRegisterAPIV2.Entities.Enums;
 
 public enum TransactionType
 {

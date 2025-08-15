@@ -2,11 +2,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using SMJRegisterAPI.Features.Payment.Command.Create;
-using SMJRegisterAPI.Features.Payment.Dtos;
-using SMJRegisterAPI.Features.Payment.Queries.GetAll;
+using SMJRegisterAPIV2.Features.Payment.Command.Create;
+using SMJRegisterAPIV2.Features.Payment.Dtos;
+using SMJRegisterAPIV2.Features.Payment.Queries.GetAll;
 
-namespace SMJRegisterAPI.Features.Payment.Endpoints;
+namespace SMJRegisterAPIV2.Features.Payment.Endpoints;
 
 public class PaymentEndpoints() : CarterModule("/payments")
 {

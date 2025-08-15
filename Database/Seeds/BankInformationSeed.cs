@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Entities;
-using SMJRegisterAPI.Entities.Enums;
+using SMJRegisterAPIV2.Entities;
+using SMJRegisterAPIV2.Entities.Enums;
 
-namespace SMJRegisterAPI.Database.Seeds;
+namespace SMJRegisterAPIV2.Database.Seeds;
 
 public class BankInformationSeed
 {

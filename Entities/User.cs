@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using SMJRegisterAPI.Entities.Enums;
-namespace SMJRegisterAPI.Entities;
+using SMJRegisterAPIV2.Entities.Enums;
+
+namespace SMJRegisterAPIV2.Entities;
 
 public class User : IdentityUser
 {

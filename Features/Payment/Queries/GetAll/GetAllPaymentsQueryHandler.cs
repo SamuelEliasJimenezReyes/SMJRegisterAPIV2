@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.Payment.Dtos;
-using SMJRegisterAPI.Features.Payment.Repository;
+using SMJRegisterAPIV2.Features.Payment.Dtos;
+using SMJRegisterAPIV2.Features.Payment.Repository;
 
-namespace SMJRegisterAPI.Features.Payment.Queries.GetAll;
+namespace SMJRegisterAPIV2.Features.Payment.Queries.GetAll;
 
 public class GetAllPaymentsQueryHandler(
     IPaymentRepository repository, 

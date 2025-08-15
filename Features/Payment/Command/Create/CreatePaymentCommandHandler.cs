@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.Camper.Repository;
-using SMJRegisterAPI.Features.Payment.Dtos;
-using SMJRegisterAPI.Features.Payment.Repository;
-using SMJRegisterAPI.Services.FileStore;
+using SMJRegisterAPIV2.Features.Camper.Repository;
+using SMJRegisterAPIV2.Features.Payment.Dtos;
+using SMJRegisterAPIV2.Features.Payment.Repository;
+using SMJRegisterAPIV2.Services.FileStore;
 
-namespace SMJRegisterAPI.Features.Payment.Command.Create;
+namespace SMJRegisterAPIV2.Features.Payment.Command.Create;
 
 public class CreatePaymentCommandHandler(
     IPaymentRepository repository,

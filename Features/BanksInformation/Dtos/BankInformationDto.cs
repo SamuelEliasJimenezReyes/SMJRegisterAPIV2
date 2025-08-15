@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.BanksInformation.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.BanksInformation.Dtos;
 
 public class BankInformationDto
 {

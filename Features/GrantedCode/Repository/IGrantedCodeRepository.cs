@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Features.Common;
+﻿using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Repository;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Repository;
 
 public interface IGrantedCodeRepository : IGenericRepository<Entities.GrantedCode>
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Database.Contexts;
-using SMJRegisterAPI.Features.Common;
+using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.Room.Repository;
+namespace SMJRegisterAPIV2.Features.Room.Repository;
 
 public class RoomRepository(ApplicationDbContext context) : GenericRepository<Entities.Room>(context), IRoomRepository
 {

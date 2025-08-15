@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using SMJRegisterAPI.Database.Contexts;
+using SMJRegisterAPIV2.Database.Contexts;
 
 #nullable disable
 
-namespace SMJRegisterAPI.Database.Migrations.ApplicationDbContextMigrations
+namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot

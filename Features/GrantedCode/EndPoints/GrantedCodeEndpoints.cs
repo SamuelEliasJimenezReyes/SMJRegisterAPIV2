@@ -1,11 +1,11 @@
 ﻿using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
-using SMJRegisterAPI.Features.GrantedCode.Command;
-using SMJRegisterAPI.Features.GrantedCode.Dtos;
-using SMJRegisterAPI.Features.GrantedCode.Queries.GetAll;
+using SMJRegisterAPIV2.Features.GrantedCode.Command;
+using SMJRegisterAPIV2.Features.GrantedCode.Dtos;
+using SMJRegisterAPIV2.Features.GrantedCode.Queries.GetAll;
 
-namespace SMJRegisterAPI.Features.GrantedCode.EndPoints;
+namespace SMJRegisterAPIV2.Features.GrantedCode.EndPoints;
 
 public class GrantedCodeEndpoints() : CarterModule("/grantedCode")
 {

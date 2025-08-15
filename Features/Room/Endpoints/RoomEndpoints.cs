@@ -1,14 +1,14 @@
 ﻿using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
-using SMJRegisterAPI.Features.Room.Command;
-using SMJRegisterAPI.Features.Room.Command.AutomaticSorterByCamperId;
-using SMJRegisterAPI.Features.Room.Command.AutomaticSorterByChurch;
-using SMJRegisterAPI.Features.Room.Dtos;
-using SMJRegisterAPI.Features.Room.Queries.GetAll;
-using SMJRegisterAPI.Features.Room.Queries.GetById;
+using SMJRegisterAPIV2.Features.Room.Command;
+using SMJRegisterAPIV2.Features.Room.Command.AutomaticSorterByCamperId;
+using SMJRegisterAPIV2.Features.Room.Command.AutomaticSorterByChurch;
+using SMJRegisterAPIV2.Features.Room.Dtos;
+using SMJRegisterAPIV2.Features.Room.Queries.GetAll;
+using SMJRegisterAPIV2.Features.Room.Queries.GetById;
 
-namespace SMJRegisterAPI.Features.Room.Endpoints;
+namespace SMJRegisterAPIV2.Features.Room.Endpoints;
 
 public class RoomEndpoints() : CarterModule("/room")
 {

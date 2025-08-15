@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Church.Dtos;
+using SMJRegisterAPIV2.Features.Church.Dtos;
 
-namespace SMJRegisterAPI.Features.Church.Queries.GetById;
+namespace SMJRegisterAPIV2.Features.Church.Queries.GetById;
 
 public class GetChurchByIdQuery : IRequest<ChurchDTO>
 {

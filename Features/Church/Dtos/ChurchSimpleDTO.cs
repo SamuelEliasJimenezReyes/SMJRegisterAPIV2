@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.Church.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.Church.Dtos;
 
 public class ChurchSimpleDTO
 {

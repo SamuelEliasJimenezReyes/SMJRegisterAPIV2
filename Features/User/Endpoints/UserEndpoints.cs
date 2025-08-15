@@ -1,11 +1,11 @@
 ﻿using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
-using SMJRegisterAPI.Features.User.Command.Register;
-using SMJRegisterAPI.Features.User.Dtos;
-using SMJRegisterAPI.Features.User.Login;
+using SMJRegisterAPIV2.Features.User.Command.Register;
+using SMJRegisterAPIV2.Features.User.Dtos;
+using SMJRegisterAPIV2.Features.User.Login;
 
-namespace SMJRegisterAPI.Features.User.Endpoints;
+namespace SMJRegisterAPIV2.Features.User.Endpoints;
 
 public class UserEndpoints() : CarterModule("/user")
 {

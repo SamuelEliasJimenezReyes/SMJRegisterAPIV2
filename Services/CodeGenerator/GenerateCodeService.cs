@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Services.CodeGenerator;
+﻿namespace SMJRegisterAPIV2.Services.CodeGenerator;
 
 public class GenerateCodeService : IGenerateCodeService
 {

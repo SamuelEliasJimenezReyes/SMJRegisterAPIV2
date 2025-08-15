@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.BanksInformation.Dtos;
-using SMJRegisterAPI.Features.BanksInformation.Repository;
+using SMJRegisterAPIV2.Features.BanksInformation.Dtos;
+using SMJRegisterAPIV2.Features.BanksInformation.Repository;
 
-namespace SMJRegisterAPI.Features.BanksInformation.Queries.GetAll;
+namespace SMJRegisterAPIV2.Features.BanksInformation.Queries.GetAll;
 
 public class GetAllBankInformationQueryHandler(IBankInformationRepository repository, IMapper mapper): IRequestHandler<GetAllBankInformationQuery,IList<BankInformationDto>>
 {

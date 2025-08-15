@@ -1,8 +1,8 @@
 ﻿using Bogus.DataSets;
-using SMJRegisterAPI.Common.Entities;
-using SMJRegisterAPI.Entities.Enums;
+using SMJRegisterAPIV2.Common.Entities;
+using SMJRegisterAPIV2.Entities.Enums;
 
-namespace SMJRegisterAPI.Entities; 
+namespace SMJRegisterAPIV2.Entities; 
 public class Room : BaseEntity
 {
     public string Name { get; set; }

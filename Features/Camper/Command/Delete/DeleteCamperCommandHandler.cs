@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Repository;
+using SMJRegisterAPIV2.Features.Camper.Repository;
 
-namespace SMJRegisterAPI.Features.Camper.Command.Delete;
+namespace SMJRegisterAPIV2.Features.Camper.Command.Delete;
 
 public class DeleteCamperCommandHandler(ICamperRepository repository) : IRequestHandler<DeleteCamperCommand, bool>
 {

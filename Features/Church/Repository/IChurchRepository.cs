@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Features.Common;
+﻿using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.Church.Repository;
+namespace SMJRegisterAPIV2.Features.Church.Repository;
 
 public interface IChurchRepository : IGenericRepository<Entities.Church>
 {

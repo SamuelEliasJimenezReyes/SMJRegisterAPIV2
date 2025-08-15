@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Database.Seeds;
-using SMJRegisterAPI.Entities;
-using SMJRegisterAPI.Entities.Enums;
-using SMJRegisterAPI.Services.Tenant;
+using SMJRegisterAPIV2.Database.Seeds;
+using SMJRegisterAPIV2.Entities;
+using SMJRegisterAPIV2.Entities.Enums;
+using SMJRegisterAPIV2.Services.Tenant;
 
-namespace SMJRegisterAPI.Database.Contexts;
+namespace SMJRegisterAPIV2.Database.Contexts;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantServices tenantServices) : IdentityDbContext<User>(options)
 {

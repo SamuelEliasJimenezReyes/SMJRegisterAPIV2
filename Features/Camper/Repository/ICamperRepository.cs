@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Features.Common;
+﻿using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.Camper.Repository;
+namespace SMJRegisterAPIV2.Features.Camper.Repository;
 
 public interface ICamperRepository : IGenericRepository<Entities.Camper>
 {

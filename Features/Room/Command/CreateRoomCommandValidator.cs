@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SMJRegisterAPI.Features.Room.Command;
+namespace SMJRegisterAPIV2.Features.Room.Command;
 
 public class CreateRoomCommandValidator : AbstractValidator<CreateRoomCommand>
 {

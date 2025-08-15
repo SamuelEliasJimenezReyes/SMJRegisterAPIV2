@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Room.Dtos;
+using SMJRegisterAPIV2.Features.Room.Dtos;
 
-namespace SMJRegisterAPI.Features.Room.Command;
+namespace SMJRegisterAPIV2.Features.Room.Command;
 
 public class CreateRoomCommand(CreateRoomDto room) : IRequest<CreateRoomDto>
 {

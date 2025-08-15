@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Entities.Enums;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.Camper.Repository;
+using SMJRegisterAPIV2.Entities.Enums;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Repository;
 
-namespace SMJRegisterAPI.Features.Camper.Queries.GetByAllCondition;
+namespace SMJRegisterAPIV2.Features.Camper.Queries.GetByAllCondition;
 
 public class GetAllCamperByConditionQueryHandler (IMapper mapper, ICamperRepository repository) : IRequestHandler<GetAllCamperByConditionQuery, List<CamperDTO>>
 {

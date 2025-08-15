@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace SMJRegisterAPI.Features.Common;
+namespace SMJRegisterAPIV2.Features.Common;
 
 public interface IGenericRepository<T> where T : class
 {

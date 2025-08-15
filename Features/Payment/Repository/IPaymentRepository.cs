@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Features.Common;
+﻿using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.Payment.Repository;
+namespace SMJRegisterAPIV2.Features.Payment.Repository;
 
 public interface IPaymentRepository : IGenericRepository<Entities.Payment>
 {

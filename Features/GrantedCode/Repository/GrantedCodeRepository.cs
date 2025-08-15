@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Database.Contexts;
-using SMJRegisterAPI.Features.Common;
-using SMJRegisterAPI.Services.CodeGenerator;
+using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.Common;
+using SMJRegisterAPIV2.Services.CodeGenerator;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Repository;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Repository;
 
 public class GrantedCodeRepository (ApplicationDbContext context, IGenerateCodeService codeGeneratorService) : GenericRepository<Entities.GrantedCode>(context) , IGrantedCodeRepository
 {

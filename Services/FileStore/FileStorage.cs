@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Services.FileStore;
+﻿namespace SMJRegisterAPIV2.Services.FileStore;
 
 public class FileStorage (IWebHostEnvironment env, IHttpContextAccessor httpContextAccessor) : IFileStorage
 {

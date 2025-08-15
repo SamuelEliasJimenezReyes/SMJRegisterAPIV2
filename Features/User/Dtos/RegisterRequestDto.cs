@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.User.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.User.Dtos;
 
 public class RegisterRequestDto
 {

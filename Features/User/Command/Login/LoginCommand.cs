@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity.Data;
-using SMJRegisterAPI.Features.User.Dtos;
+using SMJRegisterAPIV2.Features.User.Dtos;
 
-namespace SMJRegisterAPI.Features.User.Login;
+namespace SMJRegisterAPIV2.Features.User.Login;
 
 public class LoginCommand(LoginRequestDto dto)  : IRequest<AuthResponseDto>
 {

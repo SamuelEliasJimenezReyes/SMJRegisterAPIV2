@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using SMJRegisterAPI.Features.Camper.Command.Create;
-using SMJRegisterAPI.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Command.Create;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 
-namespace SMJRegisterAPI.Features.Camper.Mappings;
+namespace SMJRegisterAPIV2.Features.Camper.Mappings;
 
 public class CamperProfile : Profile
 {

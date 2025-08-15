@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SMJRegisterAPI.Entities;
+using SMJRegisterAPIV2.Entities;
 
-namespace SMJRegisterAPI.Database.Configurations;
+namespace SMJRegisterAPIV2.Database.Configurations;
 
 public class GrantedCodeConfiguration : IEntityTypeConfiguration<GrantedCode>
 {

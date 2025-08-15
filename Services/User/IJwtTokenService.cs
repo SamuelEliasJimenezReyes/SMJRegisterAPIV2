@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Entities.Enums;
+﻿using SMJRegisterAPIV2.Entities.Enums;
 
-namespace SMJRegisterAPI.Services.User;
+namespace SMJRegisterAPIV2.Services.User;
 
 public interface IJwtTokenService
 {

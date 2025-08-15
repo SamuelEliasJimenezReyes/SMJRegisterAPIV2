@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Payment.Dtos;
+using SMJRegisterAPIV2.Features.Payment.Dtos;
 
-namespace SMJRegisterAPI.Features.Payment.Command.Create;
+namespace SMJRegisterAPIV2.Features.Payment.Command.Create;
 
 public class CreatePaymentCommand(CreatePaymentDto payment) : IRequest<CreatePaymentDto>
 {

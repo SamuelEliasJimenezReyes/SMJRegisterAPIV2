@@ -1,13 +1,13 @@
 ﻿using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
-using SMJRegisterAPI.Features.Camper.Queries.GetAll;
-using SMJRegisterAPI.Features.Church.Dtos;
-using SMJRegisterAPI.Features.Church.Queries.GetAll;
-using SMJRegisterAPI.Features.Church.Queries.GetAllByConference;
-using SMJRegisterAPI.Features.Church.Queries.GetById;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetAll;
+using SMJRegisterAPIV2.Features.Church.Dtos;
+using SMJRegisterAPIV2.Features.Church.Queries.GetAll;
+using SMJRegisterAPIV2.Features.Church.Queries.GetAllByConference;
+using SMJRegisterAPIV2.Features.Church.Queries.GetById;
 
-namespace SMJRegisterAPI.Features.Church.Endpoints;
+namespace SMJRegisterAPIV2.Features.Church.Endpoints;
 
 public class ChurchEndpoints() : CarterModule("/church")
 {

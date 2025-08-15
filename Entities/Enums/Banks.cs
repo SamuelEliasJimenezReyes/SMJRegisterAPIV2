@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace SMJRegisterAPI.Entities.Enums;
+namespace SMJRegisterAPIV2.Entities.Enums;
 
 public enum Banks
 {

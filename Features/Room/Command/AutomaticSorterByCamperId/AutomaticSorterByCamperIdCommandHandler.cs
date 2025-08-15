@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Repository;
-using SMJRegisterAPI.Features.Room.Repository;
+using SMJRegisterAPIV2.Features.Camper.Repository;
+using SMJRegisterAPIV2.Features.Room.Repository;
 
-namespace SMJRegisterAPI.Features.Room.Command.AutomaticSorterByCamperId;
+namespace SMJRegisterAPIV2.Features.Room.Command.AutomaticSorterByCamperId;
 
 public class AutomaticSorterByCamperIdCommandHandler (IRoomRepository repository, ICamperRepository camperRepository)
     : IRequestHandler<AutomaticSorterByCamperIdCommand, Unit>

@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.Room.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.Room.Dtos;
 
 public class CreateRoomDto
 {

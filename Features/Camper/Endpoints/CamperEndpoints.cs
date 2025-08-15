@@ -2,16 +2,16 @@
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using SMJRegisterAPI.Features.Camper.Command.Create;
-using SMJRegisterAPI.Features.Camper.Command.Update;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.Camper.Queries.GetAll;
-using SMJRegisterAPI.Features.Camper.Queries.GetAllByChurchID;
-using SMJRegisterAPI.Features.Camper.Queries.GetAllByConference;
-using SMJRegisterAPI.Features.Camper.Queries.GetByAllCondition;
-using SMJRegisterAPI.Features.Camper.Queries.GetById;
+using SMJRegisterAPIV2.Features.Camper.Command.Create;
+using SMJRegisterAPIV2.Features.Camper.Command.Update;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetAll;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetAllByChurchID;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetAllByConference;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetByAllCondition;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetById;
 
-namespace SMJRegisterAPI.Features.Camper.Endpoints;
+namespace SMJRegisterAPIV2.Features.Camper.Endpoints;
 
 public class CamperEndpoints() : CarterModule("/camper")
 {

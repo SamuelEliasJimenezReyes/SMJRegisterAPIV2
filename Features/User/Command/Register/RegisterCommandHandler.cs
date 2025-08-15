@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
-using SMJRegisterAPI.Database.Contexts;
-using SMJRegisterAPI.Features.User.Dtos;
-using SMJRegisterAPI.Services.User;
+using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.User.Dtos;
+using SMJRegisterAPIV2.Services.User;
 
-namespace SMJRegisterAPI.Features.User.Command.Register;
+namespace SMJRegisterAPIV2.Features.User.Command.Register;
 
 public class RegisterCommandHandler( 
     UserManager<Entities.User> userManager,

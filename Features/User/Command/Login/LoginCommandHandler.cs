@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
-using SMJRegisterAPI.Features.User.Dtos;
-using SMJRegisterAPI.Services.User;
+using SMJRegisterAPIV2.Features.User.Dtos;
+using SMJRegisterAPIV2.Services.User;
 
-namespace SMJRegisterAPI.Features.User.Login;
+namespace SMJRegisterAPIV2.Features.User.Login;
 
 public class LoginCommandHandler( SignInManager<Entities.User> signInManager ,
     UserManager<Entities.User> userManager,

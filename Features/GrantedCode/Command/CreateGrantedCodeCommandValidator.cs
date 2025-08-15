@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography.Xml;
 using FluentValidation;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Command;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Command;
 
 public class CreateGrantedCodeCommandValidator : AbstractValidator<CreateGrantedCodeCommand>
 {

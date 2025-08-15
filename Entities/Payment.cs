@@ -1,7 +1,7 @@
-﻿using SMJRegisterAPI.Common.Entities;
-using SMJRegisterAPI.Entities.Enums;
+﻿using SMJRegisterAPIV2.Entities.Enums;
+using SMJRegisterAPIV2.Common.Entities;
 
-namespace SMJRegisterAPI.Entities;
+namespace SMJRegisterAPIV2.Entities;
 
 public class Payment : BaseEntity
 {

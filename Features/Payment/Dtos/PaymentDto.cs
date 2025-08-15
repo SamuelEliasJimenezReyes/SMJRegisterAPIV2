@@ -1,7 +1,7 @@
-﻿using SMJRegisterAPI.Features.BanksInformation.Dtos;
-using SMJRegisterAPI.Features.Camper.Dtos;
+﻿using SMJRegisterAPIV2.Features.BanksInformation.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 
-namespace SMJRegisterAPI.Features.Payment.Dtos;
+namespace SMJRegisterAPIV2.Features.Payment.Dtos;
 
 public class PaymentDto
 {

@@ -1,12 +1,13 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Entities.Enums;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.Camper.Repository;
-using SMJRegisterAPI.Features.GrantedCode.Repository;
-using SMJRegisterAPI.Services.FileStore;
-namespace SMJRegisterAPI.Features.Camper.Command.Create;
+using SMJRegisterAPIV2.Entities.Enums;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Repository;
+using SMJRegisterAPIV2.Features.GrantedCode.Repository;
+using SMJRegisterAPIV2.Services.FileStore;
+
+namespace SMJRegisterAPIV2.Features.Camper.Command.Create;
 
 public class CreateCamperCommandHandler(ICamperRepository repository,
     IGrantedCodeRepository grantedCodeRepository, 

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.BanksInformation.Dtos;
+using SMJRegisterAPIV2.Features.BanksInformation.Dtos;
 
-namespace SMJRegisterAPI.Features.BanksInformation.Queries.GetAll;
+namespace SMJRegisterAPIV2.Features.BanksInformation.Queries.GetAll;
 
 public class GetAllBankInformationQuery : IRequest<IList<BankInformationDto>>
 {

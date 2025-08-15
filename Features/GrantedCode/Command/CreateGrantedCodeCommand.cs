@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.GrantedCode.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.GrantedCode.Dtos;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Command;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Command;
 
 public class CreateGrantedCodeCommand(CreateGrantedCodeDTO grantedCode) : IRequest<CreateGrantedCodeDTO>
 {

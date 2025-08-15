@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Database.Contexts;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.Common;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.Church.Repository;
+namespace SMJRegisterAPIV2.Features.Church.Repository;
 
 public class ChurchRepository(ApplicationDbContext context) : GenericRepository<Entities.Church>(context), IChurchRepository 
 {

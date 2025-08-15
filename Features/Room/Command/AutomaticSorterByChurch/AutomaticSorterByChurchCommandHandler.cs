@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Repository;
-using SMJRegisterAPI.Features.Room.Repository;
-using SMJRegisterAPI.Entities.Enums;
+using SMJRegisterAPIV2.Entities.Enums;
+using SMJRegisterAPIV2.Features.Camper.Repository;
+using SMJRegisterAPIV2.Features.Room.Repository;
 
-namespace SMJRegisterAPI.Features.Room.Command.AutomaticSorterByChurch;
+namespace SMJRegisterAPIV2.Features.Room.Command.AutomaticSorterByChurch;
 
 public class AutomaticSorterByChurchCommandHandler(IRoomRepository repository, ICamperRepository camperRepository) 
     : IRequestHandler<AutomaticSorterByChurchCommand, Unit>

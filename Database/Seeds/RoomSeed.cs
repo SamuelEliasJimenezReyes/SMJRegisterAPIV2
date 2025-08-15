@@ -1,8 +1,8 @@
 ﻿using Bogus;
 using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Entities;
+using SMJRegisterAPIV2.Entities;
 
-namespace SMJRegisterAPI.Database.Seeds;
+namespace SMJRegisterAPIV2.Database.Seeds;
 
 public class RoomSeed
 {

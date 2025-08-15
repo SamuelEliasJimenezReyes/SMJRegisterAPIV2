@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using SMJRegisterAPI.Features.Camper.Dtos;
-using SMJRegisterAPI.Features.GrantedCode.Repository;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.GrantedCode.Repository;
 
-namespace SMJRegisterAPI.Features.Camper.Command.Create;
+namespace SMJRegisterAPIV2.Features.Camper.Command.Create;
 
 public class CreateCamperCommandValidator : AbstractValidator<CreateCamperCommand>
 {

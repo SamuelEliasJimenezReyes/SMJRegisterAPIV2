@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.GrantedCode.Command;
-using SMJRegisterAPI.Features.GrantedCode.Dtos;
+using SMJRegisterAPIV2.Features.GrantedCode.Command;
+using SMJRegisterAPIV2.Features.GrantedCode.Dtos;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Queries.GetAll;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Queries.GetAll;
 
 public class GetAllGrantedCodeQuery : IRequest<IList<GrantedCodeDTO>>
 {

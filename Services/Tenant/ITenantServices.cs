@@ -1,6 +1,6 @@
-﻿using SMJRegisterAPI.Entities.Enums;
+﻿using SMJRegisterAPIV2.Entities.Enums;
 
-namespace SMJRegisterAPI.Services.Tenant;
+namespace SMJRegisterAPIV2.Services.Tenant;
 
 public interface ITenantServices
 {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using SMJRegisterAPI.Features.GrantedCode.Repository;
+using SMJRegisterAPIV2.Features.GrantedCode.Repository;
 
-namespace SMJRegisterAPI.Features.Camper.Command.Update;
+namespace SMJRegisterAPIV2.Features.Camper.Command.Update;
 
 public class UpdateCamperCommandValidator : AbstractValidator<UpdateCamperCommand>
 {

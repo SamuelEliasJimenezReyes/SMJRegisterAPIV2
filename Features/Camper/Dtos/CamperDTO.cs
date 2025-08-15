@@ -1,7 +1,8 @@
-﻿using SMJRegisterAPI.Features.Church.Dtos;
-using SMJRegisterAPI.Features.GrantedCode.Dtos;
-using SMJRegisterAPI.Features.Room.Dtos;
-namespace SMJRegisterAPI.Features.Camper.Dtos;
+﻿using SMJRegisterAPIV2.Features.Church.Dtos;
+using SMJRegisterAPIV2.Features.GrantedCode.Dtos;
+using SMJRegisterAPIV2.Features.Room.Dtos;
+
+namespace SMJRegisterAPIV2.Features.Camper.Dtos;
 
 public class CamperDTO
 {

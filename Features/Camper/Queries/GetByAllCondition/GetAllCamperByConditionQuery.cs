@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 
-namespace SMJRegisterAPI.Features.Camper.Queries.GetByAllCondition;
+namespace SMJRegisterAPIV2.Features.Camper.Queries.GetByAllCondition;
 
 public class GetAllCamperByConditionQuery : IRequest<List<CamperDTO>>
 {

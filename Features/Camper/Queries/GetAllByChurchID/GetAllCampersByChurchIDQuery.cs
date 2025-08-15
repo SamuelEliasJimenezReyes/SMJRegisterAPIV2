@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 
 
-namespace SMJRegisterAPI.Features.Camper.Queries.GetAllByChurchID;
+namespace SMJRegisterAPIV2.Features.Camper.Queries.GetAllByChurchID;
 
 public  class GetAllCampersByChurchIdQuery : IRequest<List<CamperDTO>>
 {

@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Features.Camper.Dtos;
+﻿namespace SMJRegisterAPIV2.Features.Camper.Dtos;
 
 public class UpdateCamperDTO
 {

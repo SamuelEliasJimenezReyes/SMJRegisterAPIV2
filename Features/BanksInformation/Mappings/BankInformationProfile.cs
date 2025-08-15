@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using SMJRegisterAPI.Features.BanksInformation.Dtos;
+using SMJRegisterAPIV2.Features.BanksInformation.Dtos;
 
-namespace SMJRegisterAPI.Features.BanksInformation.Mappings;
+namespace SMJRegisterAPIV2.Features.BanksInformation.Mappings;
 
 public class BankInformationProfile : Profile
 {

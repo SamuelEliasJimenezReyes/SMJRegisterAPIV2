@@ -2,9 +2,9 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using SMJRegisterAPI.Entities.Enums;
+using SMJRegisterAPIV2.Entities.Enums;
 
-namespace SMJRegisterAPI.Services.User;
+namespace SMJRegisterAPIV2.Services.User;
 
 public class JwtTokenServices(IConfiguration configuration) : IJwtTokenService
 {

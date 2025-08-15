@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Database.Contexts;
-using SMJRegisterAPI.Features.BanksInformation.Dtos;
-using SMJRegisterAPI.Features.Common;
+using SMJRegisterAPIV2.Features.BanksInformation.Dtos;
+using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.BanksInformation.Repository;
+namespace SMJRegisterAPIV2.Features.BanksInformation.Repository;
 
 public class BankInformationRepository(ApplicationDbContext context) : GenericRepository<Entities.BanksInformation>(context), IBankInformationRepository
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SMJRegisterAPI.Features.Room.Command.AutomaticSorterByChurch;
+namespace SMJRegisterAPIV2.Features.Room.Command.AutomaticSorterByChurch;
 
 public class AutomaticSorterByChurchCommand : IRequest<Unit>
 {

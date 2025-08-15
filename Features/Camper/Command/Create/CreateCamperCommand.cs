@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 
-namespace SMJRegisterAPI.Features.Camper.Command.Create;
+namespace SMJRegisterAPIV2.Features.Camper.Command.Create;
 
 public class CreateCamperCommand(CreateCamperDTO camper) : IRequest<CreateCamperDTO>
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SMJRegisterAPI.Entities;
-using SMJRegisterAPI.Entities.Enums;
+using SMJRegisterAPIV2.Entities;
+using SMJRegisterAPIV2.Entities.Enums;
 
-namespace SMJRegisterAPI.Database.Configurations;
+namespace SMJRegisterAPIV2.Database.Configurations;
 
 public class CamperConfiguration(Conference tenantConference) : IEntityTypeConfiguration<Camper>
 {

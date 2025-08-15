@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.Room.Dtos;
-using SMJRegisterAPI.Features.Room.Repository;
+using SMJRegisterAPIV2.Features.Room.Dtos;
+using SMJRegisterAPIV2.Features.Room.Repository;
 
-namespace SMJRegisterAPI.Features.Room.Queries.GetAll;
+namespace SMJRegisterAPIV2.Features.Room.Queries.GetAll;
 
 public class GetAllRoomsQueryHandler(IRoomRepository repository, IMapper mapper) 
     : IRequestHandler<GetAllRoomsQuery, IList<RoomSimpleDto>>

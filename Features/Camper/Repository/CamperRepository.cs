@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SMJRegisterAPI.Database.Contexts;
-using SMJRegisterAPI.Features.Common;
+using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.Common;
 
-namespace SMJRegisterAPI.Features.Camper.Repository;
+namespace SMJRegisterAPIV2.Features.Camper.Repository;
 
 public class CamperRepository(ApplicationDbContext context) :  GenericRepository<Entities.Camper>(context), ICamperRepository
 {

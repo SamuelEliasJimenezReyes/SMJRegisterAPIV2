@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SMJRegisterAPI.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 
-namespace SMJRegisterAPI.Features.Camper.Command.Update;
+namespace SMJRegisterAPIV2.Features.Camper.Command.Update;
 
 public class UpdateCamperCommand(UpdateCamperDTO camper, int id) : IRequest<UpdateCamperDTO>
 {

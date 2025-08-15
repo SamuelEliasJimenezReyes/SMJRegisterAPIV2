@@ -1,4 +1,4 @@
-﻿namespace SMJRegisterAPI.Common.Entities;
+﻿namespace SMJRegisterAPIV2.Common.Entities;
 
 public abstract class BaseEntity
 {

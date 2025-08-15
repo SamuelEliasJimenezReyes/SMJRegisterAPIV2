@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPI.Features.GrantedCode.Dtos;
-using SMJRegisterAPI.Features.GrantedCode.Repository;
-using SMJRegisterAPI.Services.CodeGenerator;
+using SMJRegisterAPIV2.Features.GrantedCode.Dtos;
+using SMJRegisterAPIV2.Features.GrantedCode.Repository;
+using SMJRegisterAPIV2.Services.CodeGenerator;
 
-namespace SMJRegisterAPI.Features.GrantedCode.Command;
+namespace SMJRegisterAPIV2.Features.GrantedCode.Command;
 
 public class CreateGrantedCodeCommandHandler(IGrantedCodeRepository repository,
     IMapper mapper ,
