@@ -1,0 +1,6 @@
+@SMJRegisterAPIV2_HostAddress = http://localhost:5062
+
+GET {{SMJRegisterAPIV2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

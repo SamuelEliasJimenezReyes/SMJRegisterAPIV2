@@ -1,0 +1,7 @@
+﻿services:
+  smjregisterapiv2:
+    image: smjregisterapiv2
+    build:
+      context: .
+      dockerfile: Dockerfile
+
