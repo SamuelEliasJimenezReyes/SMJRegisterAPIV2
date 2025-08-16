@@ -11,7 +11,7 @@ public class CreateCamperDTO
     public bool IsGrant { get; set; }
     public decimal GrantedAmount { get; set; }
     public bool IsPaid { get; set; } = false;
-    public IReadOnlyList<IFormFile>? Documents { get; set; }
+    public IFormFile? Document { get; set; }
     public int Gender { get; set; } 
     public int Condition { get; set; }
     public int PayType { get; set; }

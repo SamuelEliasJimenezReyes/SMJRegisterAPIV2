@@ -11,7 +11,7 @@ public class BankInformationEndpoints() : CarterModule("/bank-information")
 {
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/", GetAllBankInformation).RequireAuthorization("Authenticated");
+        app.MapGet("/", GetAllBankInformation).RequireAuthorization();
         app.MapGet("/get-by-conference/{conference:int}", GetAllByConference);
     }
     private async Task<Results<Ok<IList<BankInformationDto>>, NotFound>> GetAllBankInformation(ISender sender)

@@ -10,7 +10,7 @@ public class Camper : BaseEntity
     public string PhoneNumber { get; set; }
     public int Age { get; set; }
     public string? Coments { get; set; }
-    public List<string>? DocumentsURL { get; set; }
+    public string? DocumentsURL { get; set; }
     public decimal  PaidAmount { get; set; }
     public decimal  TotalAmount { get; set; }
     public bool IsGrant { get; set; } = false;

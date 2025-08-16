@@ -20,7 +20,7 @@ public class CamperDTO
     public string ShirtSize { get; set; }
     public string ArrivedTimeSlot { get; set; }
 
-    public List<string>? DocumentsURL { get; set; }
+    public string? DocumentsURL { get; set; }
 
     
     public ChurchSimpleDTO Church { get; set; }

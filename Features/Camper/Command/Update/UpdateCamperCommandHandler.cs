@@ -30,7 +30,7 @@ public class UpdateCamperCommandHandler(
         camper.ChurchId = request.Camper.ChurchId;
         camper.RoomId = request.Camper.RoomId == 0 ? null : request.Camper.RoomId;
 
-        camper.UpdatedAt = DateTime.Now;
+        camper.UpdatedAt = DateTime.UtcNow;
 
         await repository.UpdateAsync(camper, camper.ID);
 

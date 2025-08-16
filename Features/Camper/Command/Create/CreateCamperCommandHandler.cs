@@ -39,12 +39,12 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
         }
         await repository.AddAsync(camper);
 
-        if (request.Camper.Documents.Any())
+        if (request.Camper.Document is not null)
         {
             var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
-            var urls = await storage.MultipleStore("camper-documents", folderName, request.Camper.Documents);
+            var urls = await storage.Store("camper-documents", folderName, request.Camper.Document);
             camper.DocumentsURL = urls;
-            camper.UpdatedAt = DateTime.Now;
+            camper.UpdatedAt = DateTime.UtcNow;
             await repository.UpdateAsync(camper,camper.ID);
         }
         

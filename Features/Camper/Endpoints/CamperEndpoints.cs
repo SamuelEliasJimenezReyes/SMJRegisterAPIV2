@@ -20,7 +20,7 @@ public class CamperEndpoints() : CarterModule("/camper")
         app.MapGet("/", GetAllCampers).RequireAuthorization();
         app.MapGet("/{id:int}", GetCamperById).RequireAuthorization();
         app.MapPost("/", CreateCamper)
-            .Accepts<CreateCamperDTO>("multipart/form-data")
+            .Accepts<CreateCamperDTO>("multipart/form-data") 
             .DisableAntiforgery();
         app.MapGet("/get-by-condition{condition:int}", GetAllByCondition).RequireAuthorization();
         app.MapGet("/get-by-church/{churchId:int}", GetAllByChurchId).RequireAuthorization();
