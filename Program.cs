@@ -147,7 +147,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 #endregion
 #region Middlewares
-if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Railway")
+if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Dev")
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
@@ -191,6 +191,7 @@ app.UseExceptionHandler(cfg =>
     });
 });
 #endregion
-
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://*:{port}");
 
 app.Run();
