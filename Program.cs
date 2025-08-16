@@ -139,11 +139,6 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 #region Uso de static files
-var camperDocsPath = Path.Combine(builder.Environment.ContentRootPath, "wwwroot");
-if (!Directory.Exists(camperDocsPath))
-{
-    Directory.CreateDirectory(camperDocsPath);
-}
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(

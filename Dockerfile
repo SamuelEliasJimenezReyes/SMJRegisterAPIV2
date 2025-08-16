@@ -20,4 +20,6 @@ RUN dotnet publish "./SMJRegisterAPIV2.csproj" -c $BUILD_CONFIGURATION -o /app/p
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+RUN mkdir -p "/app/wwwroot/camper-documents"
 ENTRYPOINT ["dotnet", "SMJRegisterAPIV2.dll"]
