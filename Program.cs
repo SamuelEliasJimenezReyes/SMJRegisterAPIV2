@@ -147,10 +147,14 @@ app.UseStaticFiles(new StaticFileOptions
 });
 #endregion
 #region Middlewares
-if (app.Environment.IsDevelopment())
+if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Railway")
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SMJRegister API V1");
+        c.RoutePrefix = string.Empty; // Swagger en la raíz
+    });
 }
 
 app.UseCors();

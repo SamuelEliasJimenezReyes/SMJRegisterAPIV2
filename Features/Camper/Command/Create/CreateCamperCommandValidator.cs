@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using SMJRegisterAPIV2.Features.Camper.Dtos;
+using SMJRegisterAPIV2.Features.Camper.Repository;
 using SMJRegisterAPIV2.Features.GrantedCode.Repository;
 
 namespace SMJRegisterAPIV2.Features.Camper.Command.Create;
@@ -14,7 +15,15 @@ public class CreateCamperCommandValidator : AbstractValidator<CreateCamperComman
 
         RuleFor(x => x.Camper.PhoneNumber)
             .NotEmpty().WithMessage("El número de teléfono es obligatorio.")
-            .Matches(@"^[^a-zA-Z]*$").WithMessage("El número de teléfono no debe contener letras.");
+            .Matches(@"^[^a-zA-Z]*$").WithMessage("El número de teléfono no debe contener letras.")
+            .MustAsync(async (phoneNumber, cancellationToken) =>
+            {
+                using var scope = _serviceProvider.CreateScope();
+                var camperRepository = scope.ServiceProvider.GetRequiredService<ICamperRepository>();
+                var exists = await camperRepository.ExistByPhoneNumber(phoneNumber);
+                return !exists;
+            })
+            .WithMessage("El número de teléfono ya está registrado.");
 
         RuleFor(x => x.Camper.Name)
             .NotEmpty().WithMessage("El Nombre de no puede estar vacio")

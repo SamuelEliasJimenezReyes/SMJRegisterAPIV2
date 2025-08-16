@@ -32,5 +32,8 @@ public class CamperRepository(ApplicationDbContext context) :  GenericRepository
         .Include(c => c.Room)
         .Include(c=>c.GrantedCode)
         .ToListAsync();
+    
+    public async Task<bool> ExistByPhoneNumber(string phoneNumber)
+        => await context.Campers.AnyAsync(camper => camper.PhoneNumber == phoneNumber);
 
 }
