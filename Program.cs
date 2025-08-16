@@ -24,21 +24,6 @@ using SMJRegisterAPIV2.Services.Tenant;
 using SMJRegisterAPIV2.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://*:{port}");
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-                       ?? throw new InvalidOperationException("Database connection string is not configured");
-builder.Services.AddDbContext<ApplicationDbContext>(opt => 
-    opt.UseNpgsql(connectionString));
-
-// 2. Validación explícita de JWT Key
-var jwtKey = builder.Configuration["JwtSettings:Key"] 
-             ?? throw new InvalidOperationException("JWT Key is not configured");
-var jwtIssuer = builder.Configuration["JwtSettings:Issuer"] 
-                ?? "SMJRegisterAPI";
-var jwtAudience = builder.Configuration["JwtSettings:Audience"] 
-                  ?? "SMJRegisterAPI";
 
 #region DbContext Configurations
 builder.Services.AddDbContext<ApplicationDbContext>(opt =>
@@ -88,10 +73,8 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddDefaultTokenProviders();
 
 #region Swagger y Carter
-if (builder.Environment.IsDevelopment()) {
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-}
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 builder.Services.AddCarter();
 
@@ -99,7 +82,8 @@ builder.Services.AddCarter();
 
 
 #region Auth
-
+var jwtKey = builder.Configuration["JwtSettings:Key"];
+var jwtIssuer = builder.Configuration["JwtSettings:Issuer"];
 
 builder.Services.AddAuthentication(options =>
 {
@@ -115,7 +99,7 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
         ValidIssuer = jwtIssuer,
-        ValidAudience = jwtAudience,
+        ValidAudience = jwtIssuer,
         RoleClaimType = "conference",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
@@ -125,23 +109,16 @@ builder.Services.AddAuthorization();
 #endregion
 
 var app = builder.Build();
-using (var scope = app.Services.CreateScope()) {
-    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
-}
+
 
 #region Middlewares
-if (app.Environment.IsDevelopment()) {
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseHttpsRedirection();
-} else {
-    app.UseExceptionHandler("/error");
 }
 
-if (app.Environment.IsDevelopment()) {
-    app.UseHttpsRedirection();
-}
+app.UseHttpsRedirection();
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -175,9 +152,5 @@ app.UseExceptionHandler(cfg =>
     });
 });
 #endregion
-var logger = app.Services.GetRequiredService<ILogger<Program>>();
-logger.LogInformation("Application starting on port: {Port}", port);
-logger.LogInformation("Database server: {DbServer}", 
-    connectionString.Split(';').FirstOrDefault(s => s.StartsWith("Host")));
-logger.LogInformation("JWT Issuer: {Issuer}", jwtIssuer);
+
 app.Run();
