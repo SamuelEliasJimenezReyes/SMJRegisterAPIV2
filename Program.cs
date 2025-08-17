@@ -31,20 +31,31 @@ var builder = WebApplication.CreateBuilder(args);
 #region DbContext Configurations
 builder.Services.AddDbContext<ApplicationDbContext>(opt =>
 {
-    var connString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-    var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-    if (!string.IsNullOrEmpty(dbUrl))
+    var connString = Environment.GetEnvironmentVariable("DATABASE_URL");
+    
+    if (!string.IsNullOrEmpty(connString))
     {
-        var uri = new Uri(dbUrl);
+        var uri = new Uri(connString);
         var userInfo = uri.UserInfo.Split(':');
-
-        connString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Prefer;Trust Server Certificate=true";
+        
+        connString = new NpgsqlConnectionStringBuilder
+        {
+            Host = uri.Host,
+            Port = uri.Port,
+            Database = uri.AbsolutePath.TrimStart('/'),
+            Username = userInfo[0],
+            Password = userInfo[1],
+            SslMode = SslMode.Prefer,
+            TrustServerCertificate = true
+        }.ConnectionString;
+    }
+    else 
+    {
+        connString = builder.Configuration.GetConnectionString("DefaultConnection");
     }
 
     opt.UseNpgsql(connString, o => o.EnableRetryOnFailure());
 });
-
 
 #endregion
 
