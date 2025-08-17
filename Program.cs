@@ -29,9 +29,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region DbContext Configurations
 builder.Services.AddDbContext<ApplicationDbContext>(opt =>
-    opt.UseNpgsql(
-        builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+{
+    var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+    var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+    if (!string.IsNullOrEmpty(dbUrl))
+    {
+        connString = dbUrl.Replace("postgresql://", "Host=")
+            .Replace(":", ";Port=")
+            .Replace("@", ";Username=")
+            .Replace("/", ";Database=")
+            .Replace(";", ";Password=");
+    }
+
+    opt.UseNpgsql(connString, o =>
+    {
+        o.EnableRetryOnFailure();
+    });
+});
 #endregion
 
 #region Repositories and Services
