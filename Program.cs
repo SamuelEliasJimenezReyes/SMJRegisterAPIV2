@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Npgsql;
 using SMJRegisterAPIV2.Database.Contexts;
 using SMJRegisterAPIV2.Entities;
 using SMJRegisterAPIV2.Features.BanksInformation.Repository;
@@ -35,18 +36,26 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
     var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
     if (!string.IsNullOrEmpty(dbUrl))
     {
-        connString = dbUrl.Replace("postgresql://", "Host=")
-            .Replace(":", ";Port=")
-            .Replace("@", ";Username=")
-            .Replace("/", ";Database=")
-            .Replace(";", ";Password=");
+        var uri = new Uri(dbUrl);
+        var userInfo = uri.UserInfo.Split(':');
+
+        var builderConn = new Npgsql.NpgsqlConnectionStringBuilder
+        {
+            Host = uri.Host,
+            Port = uri.Port,
+            Username = userInfo[0],
+            Password = userInfo[1],
+            Database = uri.AbsolutePath.TrimStart('/'),
+            SslMode = SslMode.Prefer,
+            TrustServerCertificate = true
+        };
+
+        connString = builderConn.ToString();
     }
 
-    opt.UseNpgsql(connString, o =>
-    {
-        o.EnableRetryOnFailure();
-    });
+    opt.UseNpgsql(connString, o => o.EnableRetryOnFailure());
 });
+
 #endregion
 
 #region Repositories and Services
@@ -157,6 +166,7 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
 }
+
 #region Uso de static files
 app.UseStaticFiles(new StaticFileOptions
 {
