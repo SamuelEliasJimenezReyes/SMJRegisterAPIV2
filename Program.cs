@@ -39,22 +39,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
         var uri = new Uri(dbUrl);
         var userInfo = uri.UserInfo.Split(':');
 
-        var builderConn = new Npgsql.NpgsqlConnectionStringBuilder
-        {
-            Host = uri.Host,
-            Port = uri.Port,
-            Username = userInfo[0],
-            Password = userInfo[1],
-            Database = uri.AbsolutePath.TrimStart('/'),
-            SslMode = SslMode.Prefer,
-            TrustServerCertificate = true
-        };
-
-        connString = builderConn.ToString();
+        connString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Prefer;Trust Server Certificate=true";
     }
 
     opt.UseNpgsql(connString, o => o.EnableRetryOnFailure());
 });
+
 
 #endregion
 
