@@ -55,5 +55,9 @@ public class CreateCamperCommandValidator : AbstractValidator<CreateCamperComman
                 return !isUsed;
             }).WithMessage("El Codigo ya ha sido usado")
             .When(x => x.Camper.IsGrant == true);
+
+        RuleFor(x => x.Camper.Document)
+            .NotEmpty().WithMessage("Debe de subir un comprobante");
+            
     }
 }
