@@ -5,9 +5,26 @@ namespace SMJRegisterAPIV2.Entities.Enums;
 
 public enum ShirtSize
 {
+    
+    [Description("10")]
+    [Display(Name = "10")]
+    Diez = 1,
+    
+    [Description("12")]
+    [Display(Name = "12")]
+    Doce ,
+    
+    [Description("14")]
+    [Display(Name = "14")]
+    Catorce,
+    
+    [Description("16")]
+    [Display(Name = "16")]
+    dieciséis,
+    
     [Description("XS - Extra Pequeño")]
     [Display(Name = "XS - Extra Pequeño")]
-    XS = 1,
+    XS ,
     
     [Description("S - Pequeño")]
     [Display(Name = "S - Pequeño")]

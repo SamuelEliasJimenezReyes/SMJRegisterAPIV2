@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SMJRegisterAPIV2.Database.Contexts;
 using SMJRegisterAPIV2.Features.User.Dtos;
 using SMJRegisterAPIV2.Services.User;
@@ -13,29 +14,38 @@ public class RegisterCommandHandler(
 {
     public async Task<AuthResponseDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
-        await context.Database.BeginTransactionAsync(cancellationToken);
-        try
+        var strategy = context.Database.CreateExecutionStrategy();
+
+        return await strategy.ExecuteAsync(async () =>
         {
-            var req = request.RequestDto;
-            var user = new Entities.User
+            await using var transaction = await context.Database.BeginTransactionAsync(cancellationToken);
+
+            try
             {
-                Email = req.Email,
-                UserName = $"{req.FirstName}{req.LastName}",
-                Conference = (Entities.Enums.Conference)req.Conference,
-            };
-            var result = await userManager.CreateAsync(user, req.Passsword);
-            if (!result.Succeeded)
-                throw new ApplicationException(string.Join(", ", result.Errors.Select(e => e.Description)));
-            var token = jwtTokenService.GenerateToken(user.Id, user.Email, user.Conference);
-            await context.Database.CurrentTransaction.CommitAsync(cancellationToken);
-            return new AuthResponseDto {Token = token, Expiration = DateTime.UtcNow.AddHours(2)};
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            await context.Database.RollbackTransactionAsync(cancellationToken);
-            throw;
-        }
-       
+                var req = request.RequestDto;
+                var user = new Entities.User
+                {
+                    Email = req.Email,
+                    UserName = $"{req.FirstName}{req.LastName}",
+                    Conference = (Entities.Enums.Conference)req.Conference,
+                };
+
+                var result = await userManager.CreateAsync(user, req.Passsword);
+                if (!result.Succeeded)
+                    throw new ApplicationException(string.Join(", ", result.Errors.Select(e => e.Description)));
+
+                var token = jwtTokenService.GenerateToken(user.Id, user.Email, user.Conference);
+
+                await transaction.CommitAsync(cancellationToken);
+
+                return new AuthResponseDto { Token = token, Expiration = DateTime.UtcNow.AddHours(2) };
+            }
+            catch
+            {
+                await transaction.RollbackAsync(cancellationToken);
+                throw;
+            }
+        });
     }
+
 }
