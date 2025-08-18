@@ -172,9 +172,10 @@ using (var scope = app.Services.CreateScope())
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(builder.Environment.ContentRootPath, "wwwroot", "camper-documents")),
-    RequestPath = "/camper-documents"
+        Path.Combine(builder.Environment.ContentRootPath, "wwwroot")),
+    RequestPath = ""
 });
+
 #endregion
 #region Middlewares
 if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Dev")
