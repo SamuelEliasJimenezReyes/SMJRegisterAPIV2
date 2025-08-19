@@ -44,9 +44,10 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var s3Config = new AmazonS3Config
                 {
                     ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com",
-                    ForcePathStyle = true
+                    ForcePathStyle = true,
                 };
                 _s3Client = new AmazonS3Client(creds, s3Config);
+
             }
             else
             {
@@ -115,7 +116,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     ContentType = file.ContentType
                 };
 
-
                 try
                 {
                     var reqType = uploadReq.GetType();
@@ -127,8 +127,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     var p2 = reqType.GetProperty("DisableDefaultChecksumValidation");
                     if (p2 != null && p2.CanWrite)
                         p2.SetValue(uploadReq, true);
-                    uploadReq.DisablePayloadSigning = true;
-                    uploadReq.DisableDefaultChecksumValidation = true;
                 }
                 catch
                 {
@@ -157,9 +155,9 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     result.Add(url);
                 }
             }
+
             return result;
         }
-
 
         public async Task<string> RenameFileIfExists(string container, string folderName, IFormFile file)
             => await Store(container, folderName, file);
