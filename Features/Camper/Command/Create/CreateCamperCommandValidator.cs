@@ -15,15 +15,19 @@ public class CreateCamperCommandValidator : AbstractValidator<CreateCamperComman
 
         RuleFor(x => x.Camper.PhoneNumber)
             .NotEmpty().WithMessage("El número de teléfono es obligatorio.")
-            .Matches(@"^[^a-zA-Z]*$").WithMessage("El número de teléfono no debe contener letras.")
+            .Must(phone => string.IsNullOrWhiteSpace(phone) || phone.All(char.IsDigit))
+            .WithMessage("El número de teléfono solo puede contener números.")
             .MustAsync(async (phoneNumber, cancellationToken) =>
             {
+                var digitsOnly = new string(phoneNumber.Where(char.IsDigit).ToArray());
+
                 using var scope = _serviceProvider.CreateScope();
                 var camperRepository = scope.ServiceProvider.GetRequiredService<ICamperRepository>();
-                var exists = await camperRepository.ExistByPhoneNumber(phoneNumber);
+                var exists = await camperRepository.ExistByPhoneNumber(digitsOnly);
                 return !exists;
             })
             .WithMessage("El número de teléfono ya está registrado.");
+
 
         RuleFor(x => x.Camper.Name)
             .NotEmpty().WithMessage("El Nombre de no puede estar vacio")
@@ -57,7 +61,20 @@ public class CreateCamperCommandValidator : AbstractValidator<CreateCamperComman
             .When(x => x.Camper.IsGrant == true);
 
         RuleFor(x => x.Camper.Document)
-            .NotEmpty().WithMessage("Debe de subir un comprobante");
+            .NotEmpty().WithMessage("Debe de subir un comprobante")
+            .Must(file => file is not null && file.Length > 0)
+            .WithMessage("El archivo '{PropertyName}' no puede estar vacío")
+            .Must(file => file is null || file.Length <= 2 * 1024 * 1024) // 2 MB en bytes
+            .WithMessage("El archivo '{PropertyName}' no puede exceder 2 MB")
+            .Must(file =>
+            {
+                if (file is null) return true;
+                var validExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                var extension = Path.GetExtension(file.FileName).ToLower();
+                return validExtensions.Contains(extension);
+            })
+            .WithMessage("El archivo debe ser una imagen válida (.jpg, .jpeg, .png)");
+
             
     }
 }
