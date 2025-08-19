@@ -45,6 +45,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 {
                     ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com",
                     ForcePathStyle = true,
+                    AuthenticationRegion = "auto"
                 };
                 _s3Client = new AmazonS3Client(creds, s3Config);
 

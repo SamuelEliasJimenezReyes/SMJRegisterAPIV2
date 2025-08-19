@@ -1,6 +1,8 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using SMJRegisterAPIV2.Database.Contexts;
 using SMJRegisterAPIV2.Entities.Enums;
 using SMJRegisterAPIV2.Features.Camper.Dtos;
 using SMJRegisterAPIV2.Features.Camper.Repository;
@@ -12,55 +14,77 @@ namespace SMJRegisterAPIV2.Features.Camper.Command.Create;
 public class CreateCamperCommandHandler(ICamperRepository repository,
     IGrantedCodeRepository grantedCodeRepository, 
     IMapper mapper,
+    ApplicationDbContext context,
     IFileStorage storage)
     : IRequestHandler<CreateCamperCommand, CreateCamperDTO>
 {
 
     public async Task<CreateCamperDTO> Handle(CreateCamperCommand request, CancellationToken cancellationToken)
+{
+    var strategy = context.Database.CreateExecutionStrategy();
+
+    return await strategy.ExecuteAsync(async () =>
     {
-        var camper = mapper.Map<Entities.Camper>(request.Camper);
-        
-        camper.Gender = (Gender)request.Camper.Gender;
-        camper.Condition = (Condition)request.Camper.Condition;
-        camper.PayWay = (PayWay)request.Camper.PayType;
-        camper.ShirtSize = (ShirtSize)request.Camper.ShirtSize;
-        camper.ArrivedTimeSlot = (ArrivedTimeSlot)request.Camper.ArrivedTimeSlot;
-        if(request.Camper.RoomId == 0)
-                camper.RoomId = null;   
+        await using var transaction = await context.Database.BeginTransactionAsync(cancellationToken);
 
-        var pricePerDay = 600m; 
-        camper.TotalAmount = CalculateAmount(camper.ArrivedTimeSlot, pricePerDay);
+        try
+        {
+            var camper = mapper.Map<Entities.Camper>(request.Camper);
 
-        if (camper.IsGrant && request.Camper.GrantedAmount>0)
-        {
-            camper.TotalAmount = request.Camper.GrantedAmount;
-            if (camper.TotalAmount < 0)
-                camper.TotalAmount = 0;
-        }
-        await repository.AddAsync(camper);
+            camper.Gender = (Gender)request.Camper.Gender;
+            camper.Condition = (Condition)request.Camper.Condition;
+            camper.PayWay = (PayWay)request.Camper.PayType;
+            camper.ShirtSize = (ShirtSize)request.Camper.ShirtSize;
+            camper.ArrivedTimeSlot = (ArrivedTimeSlot)request.Camper.ArrivedTimeSlot;
 
-        if (request.Camper.Document is not null)
-        {
-            var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
-            var urls = await storage.Store("camper-documents", folderName, request.Camper.Document);
-            camper.DocumentsURL = urls;
-            camper.UpdatedAt = DateTime.UtcNow;
-            await repository.UpdateAsync(camper,camper.ID);
+            if (request.Camper.RoomId == 0)
+                camper.RoomId = null;
+
+            var pricePerDay = 600m;
+            camper.TotalAmount = CalculateAmount(camper.ArrivedTimeSlot, pricePerDay);
+
+            if (camper.IsGrant && request.Camper.GrantedAmount > 0)
+            {
+                camper.TotalAmount = request.Camper.GrantedAmount;
+                if (camper.TotalAmount < 0)
+                    camper.TotalAmount = 0;
+            }
+
+            await repository.AddAsync(camper);
+
+            if (request.Camper.Document is not null)
+            {
+                var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
+                var urls = await storage.Store("camper-documents", folderName, request.Camper.Document);
+                camper.DocumentsURL = urls;
+                camper.UpdatedAt = DateTime.UtcNow;
+                await repository.UpdateAsync(camper, camper.ID);
+            }
+
+            if (camper.IsGrant && !string.IsNullOrWhiteSpace(request.Camper.Code))
+            {
+                var grantedCode = await grantedCodeRepository.GetByCodeAsync(request.Camper.Code);
+                grantedCode.IsUsed = true;
+                grantedCode.CamperId = camper.ID;
+                camper.GrantedCodeId = grantedCode.ID;
+
+                await grantedCodeRepository.UpdateAsync(grantedCode, grantedCode.ID);
+                camper.UpdatedAt = DateTime.UtcNow;
+                await repository.UpdateAsync(camper, camper.ID);
+            }
+
+            await transaction.CommitAsync(cancellationToken);
+
+            return mapper.Map<CreateCamperDTO>(camper);
         }
-        
-        if (camper.IsGrant && !String.IsNullOrWhiteSpace(request.Camper.Code))
+        catch
         {
-            var grantedCode = await grantedCodeRepository.GetByCodeAsync(request.Camper.Code);
-            grantedCode.IsUsed = true;
-            grantedCode.CamperId = camper.ID;
-            camper.GrantedCodeId = grantedCode.ID;
-            await grantedCodeRepository.UpdateAsync(grantedCode, grantedCode.ID);
-            camper.UpdatedAt = DateTime.Now;
-            await repository.UpdateAsync(camper, camper.ID);
+            await transaction.RollbackAsync(cancellationToken);
+            throw;
         }
-        var Dto = mapper.Map<CreateCamperDTO>(camper);
-        return Dto;
-    }
+    });
+}
+
 
     private decimal CalculateAmount(ArrivedTimeSlot arrivedTimeSlot, decimal pricePerDay)
     {
