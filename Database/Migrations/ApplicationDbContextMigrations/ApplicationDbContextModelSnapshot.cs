@@ -192,7 +192,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                             AccountNumber = "785889601",
                             BankName = 1,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5635),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(7054),
                             IsDeleted = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -202,7 +202,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                             AccountNumber = "9601266314",
                             BankName = 3,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5639),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(7064),
                             IsDeleted = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -212,7 +212,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                             AccountNumber = "9603689644",
                             BankName = 3,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5640),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(7065),
                             IsDeleted = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -222,7 +222,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                             AccountNumber = "833350150",
                             BankName = 1,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5641),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(7066),
                             IsDeleted = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -232,7 +232,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                             AccountNumber = "790839831",
                             BankName = 1,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5642),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(7067),
                             IsDeleted = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -242,7 +242,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                             AccountNumber = "9605995258",
                             BankName = 1,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5644),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(7069),
                             IsDeleted = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -329,428 +329,6 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("Campers");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 37,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 758, DateTimeKind.Utc).AddTicks(4801),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Pagan",
-                            Name = "Manuel",
-                            PaidAmount = 180m,
-                            PayWay = 2,
-                            PhoneNumber = "962160424",
-                            ShirtSize = 1,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 150,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(2552),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Haro",
-                            Name = "Laura",
-                            PaidAmount = 54m,
-                            PayWay = 1,
-                            PhoneNumber = "941-923-726",
-                            ShirtSize = 5,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 33,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(3800),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Pagan",
-                            Name = "Jorge",
-                            PaidAmount = 1796m,
-                            PayWay = 2,
-                            PhoneNumber = "991 622 318",
-                            ShirtSize = 6,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 43,
-                            Condition = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(4652),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Ramos",
-                            Name = "Manuel",
-                            PaidAmount = 530m,
-                            PayWay = 2,
-                            PhoneNumber = "945-192-174",
-                            ShirtSize = 5,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 130,
-                            Condition = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(5410),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Batista",
-                            Name = "Ricardo",
-                            PaidAmount = 1310m,
-                            PayWay = 2,
-                            PhoneNumber = "963 666 009",
-                            ShirtSize = 3,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 6,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 193,
-                            Condition = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(6971),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Mota",
-                            Name = "Jennifer",
-                            PaidAmount = 2343m,
-                            PayWay = 1,
-                            PhoneNumber = "948 089 213",
-                            ShirtSize = 3,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 7,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 45,
-                            Condition = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(1721),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Gámez",
-                            Name = "Laura",
-                            PaidAmount = 1063m,
-                            PayWay = 2,
-                            PhoneNumber = "979 128 977",
-                            ShirtSize = 2,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 8,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 171,
-                            Condition = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(2962),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Delacrúz",
-                            Name = "Jordi",
-                            PaidAmount = 1828m,
-                            PayWay = 2,
-                            PhoneNumber = "993 653 292",
-                            ShirtSize = 4,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 9,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 188,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(3890),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Véliz",
-                            Name = "Josep",
-                            PaidAmount = 509m,
-                            PayWay = 1,
-                            PhoneNumber = "975522497",
-                            ShirtSize = 6,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 10,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 150,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(4816),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Ontiveros",
-                            Name = "Ana",
-                            PaidAmount = 413m,
-                            PayWay = 2,
-                            PhoneNumber = "933822691",
-                            ShirtSize = 2,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 11,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 182,
-                            Condition = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(5816),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Santiago",
-                            Name = "Jennifer",
-                            PaidAmount = 248m,
-                            PayWay = 2,
-                            PhoneNumber = "906-497-119",
-                            ShirtSize = 1,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 12,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 182,
-                            Condition = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(6598),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Iglesias",
-                            Name = "Pedro",
-                            PaidAmount = 2005m,
-                            PayWay = 1,
-                            PhoneNumber = "931-955-355",
-                            ShirtSize = 5,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 13,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 6,
-                            Condition = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(7333),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Villagómez",
-                            Name = "Lorena",
-                            PaidAmount = 601m,
-                            PayWay = 2,
-                            PhoneNumber = "911 550 816",
-                            ShirtSize = 2,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 14,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 114,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(8131),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Tijerina",
-                            Name = "Ana",
-                            PaidAmount = 875m,
-                            PayWay = 1,
-                            PhoneNumber = "992 871 174",
-                            ShirtSize = 2,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 15,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 163,
-                            Condition = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(8841),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Lara",
-                            Name = "Anni",
-                            PaidAmount = 1007m,
-                            PayWay = 2,
-                            PhoneNumber = "964 973 394",
-                            ShirtSize = 6,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 16,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 154,
-                            Condition = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(9696),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Mojica",
-                            Name = "Ana",
-                            PaidAmount = 402m,
-                            PayWay = 1,
-                            PhoneNumber = "900442884",
-                            ShirtSize = 4,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 17,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 21,
-                            Condition = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(457),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Rojas",
-                            Name = "Jennifer",
-                            PaidAmount = 1265m,
-                            PayWay = 1,
-                            PhoneNumber = "958113741",
-                            ShirtSize = 4,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 18,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 108,
-                            Condition = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(1174),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Ríos",
-                            Name = "Roser",
-                            PaidAmount = 765m,
-                            PayWay = 1,
-                            PhoneNumber = "900-475-130",
-                            ShirtSize = 7,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 19,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 43,
-                            Condition = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(1886),
-                            Gender = 2,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Báez",
-                            Name = "Lorena",
-                            PaidAmount = 1952m,
-                            PayWay = 2,
-                            PhoneNumber = "970.779.666",
-                            ShirtSize = 6,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 20,
-                            Age = 0,
-                            ArrivedTimeSlot = 0,
-                            ChurchId = 52,
-                            Condition = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(2650),
-                            Gender = 1,
-                            IsDeleted = false,
-                            IsGrant = false,
-                            IsPaid = false,
-                            LastName = "Balderas",
-                            Name = "Roser",
-                            PaidAmount = 2102m,
-                            PayWay = 2,
-                            PhoneNumber = "906.421.721",
-                            ShirtSize = 2,
-                            TotalAmount = 0m,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SMJRegisterAPIV2.Entities.Church", b =>
@@ -786,7 +364,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 1,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(759),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6613),
                             IsDeleted = false,
                             Name = "El Valle",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -795,7 +373,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 2,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(766),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6625),
                             IsDeleted = false,
                             Name = "Higüey I",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -804,7 +382,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 3,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(767),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6627),
                             IsDeleted = false,
                             Name = "Higüey II",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -813,7 +391,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 4,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(768),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6627),
                             IsDeleted = false,
                             Name = "Magua",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -822,7 +400,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 5,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(768),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6628),
                             IsDeleted = false,
                             Name = "Romana I (Central)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -831,7 +409,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 6,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(770),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6630),
                             IsDeleted = false,
                             Name = "Romana II, Quisqueya",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -840,7 +418,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 7,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(770),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6631),
                             IsDeleted = false,
                             Name = "Romana III, (Casa de Alabanzas)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -849,7 +427,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 8,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(771),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6632),
                             IsDeleted = false,
                             Name = "Romana IV, Villa Progreso",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -858,7 +436,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 9,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(771),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6632),
                             IsDeleted = false,
                             Name = "Romana V, La Lechoza",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -867,7 +445,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 10,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(772),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6634),
                             IsDeleted = false,
                             Name = "Romana VI, Barrio George",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -876,7 +454,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 11,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(773),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6634),
                             IsDeleted = false,
                             Name = "Romana VII, Piedra Linda",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -885,7 +463,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 12,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(773),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6635),
                             IsDeleted = false,
                             Name = "Romana VIII",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -894,7 +472,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 13,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(774),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6636),
                             IsDeleted = false,
                             Name = "Romana IX",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -903,7 +481,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 14,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(774),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6636),
                             IsDeleted = false,
                             Name = "Romana X",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -912,7 +490,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 15,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(775),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6637),
                             IsDeleted = false,
                             Name = "Romana XI (Benjamín)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -921,7 +499,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 16,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(775),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6638),
                             IsDeleted = false,
                             Name = "Sabana de la Mar",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -930,7 +508,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 17,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(776),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6639),
                             IsDeleted = false,
                             Name = "San Pedro I, Central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -939,7 +517,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 18,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(777),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6640),
                             IsDeleted = false,
                             Name = "San Pedro II, Villa Olímpica",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -948,7 +526,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 19,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(777),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6641),
                             IsDeleted = false,
                             Name = "San Pedro IV (Canaan) - Capilla S. Pedro II",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -957,7 +535,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 20,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(778),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6642),
                             IsDeleted = false,
                             Name = "San Pedro III, Barrio Miramar",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -966,7 +544,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 21,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(778),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6642),
                             IsDeleted = false,
                             Name = "Azua Central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -975,7 +553,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 22,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(778),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6643),
                             IsDeleted = false,
                             Name = "Azua, Finca 6",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -984,7 +562,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 23,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(779),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6644),
                             IsDeleted = false,
                             Name = "Azua, Finca Etnico",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -993,7 +571,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 24,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(779),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6644),
                             IsDeleted = false,
                             Name = "Azua, Las Charcas (Étnico)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1002,7 +580,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 25,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(780),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6645),
                             IsDeleted = false,
                             Name = "Azua, Sector El Hoyo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1011,7 +589,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 26,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(780),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6646),
                             IsDeleted = false,
                             Name = "Baní",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1020,7 +598,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 27,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(781),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6647),
                             IsDeleted = false,
                             Name = "Bani, El Fundo - Capilla Bani",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1029,7 +607,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 28,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(781),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6647),
                             IsDeleted = false,
                             Name = "Barahona",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1038,7 +616,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 29,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(781),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6648),
                             IsDeleted = false,
                             Name = "Elías Piña",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1047,7 +625,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 30,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(782),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6648),
                             IsDeleted = false,
                             Name = "Ocoa Etnico",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1056,7 +634,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 31,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(782),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6649),
                             IsDeleted = false,
                             Name = "San Cristóbal",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1065,7 +643,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 32,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(783),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6650),
                             IsDeleted = false,
                             Name = "San Cristóbal (Étnico)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1074,7 +652,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 33,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(783),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6650),
                             IsDeleted = false,
                             Name = "San Cristóbal Étnico II",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1083,7 +661,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 34,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(784),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6652),
                             IsDeleted = false,
                             Name = "San José de Ocoa",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1092,7 +670,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 35,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(784),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6653),
                             IsDeleted = false,
                             Name = "San Juan I (Central)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1101,7 +679,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 36,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(785),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6653),
                             IsDeleted = false,
                             Name = "San Juan II - Casa de Adoración",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1110,7 +688,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 37,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(786),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6654),
                             IsDeleted = false,
                             Name = "San Juan III (El Renuevo)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1119,7 +697,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 38,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(786),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6655),
                             IsDeleted = false,
                             Name = "Alma Rosa Primera",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1128,7 +706,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 39,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(786),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6655),
                             IsDeleted = false,
                             Name = "Carretera Mella (Luz en las Tinieblas)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1137,7 +715,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 40,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(787),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6656),
                             IsDeleted = false,
                             Name = "Ens. Isabelita",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1146,7 +724,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 41,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(787),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6657),
                             IsDeleted = false,
                             Name = "Ensanche Cancela (Étnico)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1155,7 +733,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 42,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(788),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6657),
                             IsDeleted = false,
                             Name = "Ensanche Ozama",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1164,7 +742,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 43,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(788),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6658),
                             IsDeleted = false,
                             Name = "Mendoza (Capilla Ozama",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1173,7 +751,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 44,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(789),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6658),
                             IsDeleted = false,
                             Name = "Invivienda",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1182,7 +760,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 45,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(789),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6659),
                             IsDeleted = false,
                             Name = "Villa Esfuerzo - Capilla Invivienda",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1191,7 +769,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 46,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(790),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6660),
                             IsDeleted = false,
                             Name = "Los Frailes I",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1200,7 +778,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 47,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(790),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6660),
                             IsDeleted = false,
                             Name = "Los Mina",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1209,7 +787,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 48,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(791),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6661),
                             IsDeleted = false,
                             Name = "Los Tres Brazos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1218,7 +796,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 49,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(791),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6662),
                             IsDeleted = false,
                             Name = "Los Tres Ojos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1227,7 +805,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 50,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(826),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6662),
                             IsDeleted = false,
                             Name = "Urbanización Ciudad Juan Bosch",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1236,7 +814,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 51,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(827),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6663),
                             IsDeleted = false,
                             Name = "Urbanización Lomisa",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1245,7 +823,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 52,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(827),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6664),
                             IsDeleted = false,
                             Name = "Valiente  (Étnico)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1254,7 +832,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 53,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(828),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6664),
                             IsDeleted = false,
                             Name = "Villa Faro",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1263,7 +841,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 54,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(828),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6665),
                             IsDeleted = false,
                             Name = "Villa Mella, Buena Vista II.",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1272,7 +850,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 55,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(829),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6666),
                             IsDeleted = false,
                             Name = "Villa Mella, El Edén",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1281,7 +859,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 56,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(829),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6666),
                             IsDeleted = false,
                             Name = "Villa Mella, Guaricano Étnico",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1290,7 +868,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 57,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(829),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6667),
                             IsDeleted = false,
                             Name = "Villa Mella, Vista Bella III",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1299,7 +877,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 58,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(830),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6667),
                             IsDeleted = false,
                             Name = "Casa del Padre - Hotel Golden House",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1308,7 +886,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 59,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(830),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6668),
                             IsDeleted = false,
                             Name = "Cristo Rey",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1317,7 +895,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 60,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(831),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6669),
                             IsDeleted = false,
                             Name = "Ensanche La Fe",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1326,7 +904,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 61,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(831),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6669),
                             IsDeleted = false,
                             Name = "Ensanche Luperón",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1335,7 +913,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 62,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(832),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6670),
                             IsDeleted = false,
                             Name = "Ensanche Quisqueya",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1344,7 +922,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 63,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(832),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6671),
                             IsDeleted = false,
                             Name = "Arroyo Bonito - Capilla Quisqueya",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1353,7 +931,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 64,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(832),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6671),
                             IsDeleted = false,
                             Name = "Haina Étnico",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1362,7 +940,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 65,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(833),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6672),
                             IsDeleted = false,
                             Name = "Boca Nigua - Capilla Haina Boca Etnico",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1371,7 +949,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 66,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(834),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6674),
                             IsDeleted = false,
                             Name = "Haina Shalom",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1380,7 +958,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 67,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(835),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6674),
                             IsDeleted = false,
                             Name = "Herrera - Barrio Enriquillo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1389,7 +967,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 68,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(835),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6675),
                             IsDeleted = false,
                             Name = "Palmarejo - Capilla Herrera",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1398,7 +976,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 69,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(836),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6675),
                             IsDeleted = false,
                             Name = "Jardines del Norte",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1407,7 +985,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 70,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(836),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6676),
                             IsDeleted = false,
                             Name = "Jesús el Mesías, (La 15) Barrio 27 de Febrero",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1416,7 +994,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 71,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(837),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6720),
                             IsDeleted = false,
                             Name = "Juan de Morfa (Central)",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1425,7 +1003,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 72,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(837),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6721),
                             IsDeleted = false,
                             Name = "Km 24 , Barrio Eduardo Brito, Autop. Duarte",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1434,7 +1012,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 73,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(837),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6721),
                             IsDeleted = false,
                             Name = "Km.24 Etnico - Capilla",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1443,7 +1021,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 74,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(838),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6722),
                             IsDeleted = false,
                             Name = "Manoguayabo - Hato Nuevo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1452,7 +1030,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 75,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(838),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6723),
                             IsDeleted = false,
                             Name = "Nación Santa, Enriquillo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1461,7 +1039,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 76,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(839),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6723),
                             IsDeleted = false,
                             Name = "Haina Balsequillo - Capilla N. Santa",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1470,7 +1048,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 77,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(839),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6724),
                             IsDeleted = false,
                             Name = "Majagual, Sabana Perdida - Capilla N. Santa",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1479,7 +1057,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 78,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(839),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6724),
                             IsDeleted = false,
                             Name = "Pantoja",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1488,7 +1066,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 79,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(840),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6725),
                             IsDeleted = false,
                             Name = "Roca Mar, En Su presencia",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1497,7 +1075,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 80,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(840),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6725),
                             IsDeleted = false,
                             Name = "Constanza - Capilla En Su presencia",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1506,7 +1084,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 81,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(841),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6726),
                             IsDeleted = false,
                             Name = "Simon Bolivar",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1515,7 +1093,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 82,
                             Conference = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(841),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6727),
                             IsDeleted = false,
                             Name = "Villa Linda - Ciudad Satelite - Capilla",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1524,7 +1102,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 83,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(849),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6739),
                             IsDeleted = false,
                             Name = "Beller",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1533,7 +1111,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 84,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(850),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6740),
                             IsDeleted = false,
                             Name = "Camboya",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1542,7 +1120,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 85,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(850),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6741),
                             IsDeleted = false,
                             Name = "Canca La Piedra",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1551,7 +1129,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 86,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(851),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6741),
                             IsDeleted = false,
                             Name = "Casa de Reposo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1560,7 +1138,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 87,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(851),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6742),
                             IsDeleted = false,
                             Name = "Casa Viva",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1569,7 +1147,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 88,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(852),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6743),
                             IsDeleted = false,
                             Name = "Cien Fuegos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1578,7 +1156,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 89,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(852),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6743),
                             IsDeleted = false,
                             Name = "El Ingenio",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1587,7 +1165,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 90,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(852),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6744),
                             IsDeleted = false,
                             Name = "El INVI",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1596,7 +1174,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 91,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(853),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6745),
                             IsDeleted = false,
                             Name = "El Paraíso",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1605,7 +1183,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 92,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(853),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6745),
                             IsDeleted = false,
                             Name = "Ensanche Libertad",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1614,7 +1192,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 93,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(854),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6746),
                             IsDeleted = false,
                             Name = "Ensanche Mella",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1623,7 +1201,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 94,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(854),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6746),
                             IsDeleted = false,
                             Name = "Hoya del Caimito",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1632,7 +1210,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 95,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(855),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6747),
                             IsDeleted = false,
                             Name = "La Herradura",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1641,7 +1219,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 96,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(855),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6748),
                             IsDeleted = false,
                             Name = "Los Cerritos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1650,7 +1228,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 97,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(856),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6748),
                             IsDeleted = false,
                             Name = "Los Cocos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1659,7 +1237,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 98,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(856),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6749),
                             IsDeleted = false,
                             Name = "Los Jardines",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1668,7 +1246,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 99,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(857),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6749),
                             IsDeleted = false,
                             Name = "Monte Bonito",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1677,7 +1255,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 100,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(857),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6750),
                             IsDeleted = false,
                             Name = "Navarrete",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1686,7 +1264,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 101,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(857),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6750),
                             IsDeleted = false,
                             Name = "Palmar Arriba",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1695,7 +1273,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 102,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(858),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6751),
                             IsDeleted = false,
                             Name = "Pekín",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1704,7 +1282,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 103,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(858),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6752),
                             IsDeleted = false,
                             Name = "Puesto Grande",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1713,7 +1291,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 104,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(859),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6752),
                             IsDeleted = false,
                             Name = "Tamboril",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1722,7 +1300,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 105,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(859),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6753),
                             IsDeleted = false,
                             Name = "Castañuelas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1731,7 +1309,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 106,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(860),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6753),
                             IsDeleted = false,
                             Name = "Cerro Gordo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1740,7 +1318,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 107,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(860),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6754),
                             IsDeleted = false,
                             Name = "Damajagua",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1749,7 +1327,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 108,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(860),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6755),
                             IsDeleted = false,
                             Name = "El Pocito",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1758,7 +1336,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 109,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(861),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6755),
                             IsDeleted = false,
                             Name = "Esperanza 1",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1767,7 +1345,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 110,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(861),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6756),
                             IsDeleted = false,
                             Name = "Esperanza Manantial de Vida",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1776,7 +1354,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 111,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(862),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6757),
                             IsDeleted = false,
                             Name = "Esperanza Paraíso",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1785,7 +1363,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 112,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(862),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6757),
                             IsDeleted = false,
                             Name = "Hatico, Mao",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1794,7 +1372,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 113,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(863),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6758),
                             IsDeleted = false,
                             Name = "Hatillo Palma",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1803,7 +1381,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 114,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(863),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6758),
                             IsDeleted = false,
                             Name = "Hato Nuevo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1812,7 +1390,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 115,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(863),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6759),
                             IsDeleted = false,
                             Name = "Jaibón",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1821,7 +1399,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 116,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(864),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6759),
                             IsDeleted = false,
                             Name = "Loma de Cabrera",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1830,7 +1408,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 117,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(864),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6760),
                             IsDeleted = false,
                             Name = "Los Tomines",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1839,7 +1417,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 118,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(865),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6760),
                             IsDeleted = false,
                             Name = "Maizal",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1848,7 +1426,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 119,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(865),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6761),
                             IsDeleted = false,
                             Name = "Mao Central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1857,7 +1435,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 120,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(865),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6762),
                             IsDeleted = false,
                             Name = "Martín García",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1866,7 +1444,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 121,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(866),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6762),
                             IsDeleted = false,
                             Name = "Monte Cristi 1",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1875,7 +1453,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 122,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(866),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6763),
                             IsDeleted = false,
                             Name = "Monte Cristi 2",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1884,7 +1462,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 123,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(867),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6764),
                             IsDeleted = false,
                             Name = "Monte Cristi 3",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1893,7 +1471,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 124,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(867),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6764),
                             IsDeleted = false,
                             Name = "Ranchadero",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1902,7 +1480,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 125,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(867),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6765),
                             IsDeleted = false,
                             Name = "Santiago Rodríguez",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1911,7 +1489,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 126,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(868),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6765),
                             IsDeleted = false,
                             Name = "Villa Sinda",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1920,7 +1498,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 127,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(868),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6766),
                             IsDeleted = false,
                             Name = "Villa Vásquez",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1929,7 +1507,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 128,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(869),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6766),
                             IsDeleted = false,
                             Name = "Altamira",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1938,7 +1516,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 129,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(869),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6767),
                             IsDeleted = false,
                             Name = "Bethel",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1947,7 +1525,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 130,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(902),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6769),
                             IsDeleted = false,
                             Name = "Cabía",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1956,7 +1534,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 131,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(903),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6770),
                             IsDeleted = false,
                             Name = "Caonao",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1965,7 +1543,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 132,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(903),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6770),
                             IsDeleted = false,
                             Name = "El Tabernáculo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1974,7 +1552,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 133,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(903),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6771),
                             IsDeleted = false,
                             Name = "Guananico",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1983,7 +1561,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 134,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(904),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6772),
                             IsDeleted = false,
                             Name = "Imbert",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1992,7 +1570,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 135,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(904),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6772),
                             IsDeleted = false,
                             Name = "La Balsa",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2001,7 +1579,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 136,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(905),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6773),
                             IsDeleted = false,
                             Name = "La Escalereta",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2010,7 +1588,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 137,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(905),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6773),
                             IsDeleted = false,
                             Name = "La Isabela",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2019,7 +1597,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 138,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(906),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6774),
                             IsDeleted = false,
                             Name = "La Jagua",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2028,7 +1606,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 139,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(906),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6775),
                             IsDeleted = false,
                             Name = "Las Canas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2037,7 +1615,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 140,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(906),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6775),
                             IsDeleted = false,
                             Name = "Luperón",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2046,7 +1624,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 141,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(907),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6776),
                             IsDeleted = false,
                             Name = "Navas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2055,7 +1633,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 142,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(907),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6776),
                             IsDeleted = false,
                             Name = "Palmarito",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2064,7 +1642,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 143,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(908),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6777),
                             IsDeleted = false,
                             Name = "Proyecto Ama",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2073,7 +1651,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 144,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(908),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6778),
                             IsDeleted = false,
                             Name = "Puerto Plata Central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2082,7 +1660,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 145,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(908),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6778),
                             IsDeleted = false,
                             Name = "Rincón",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2091,7 +1669,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 146,
                             Conference = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(909),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6779),
                             IsDeleted = false,
                             Name = "San Marcos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2100,7 +1678,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 147,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(915),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6788),
                             IsDeleted = false,
                             Name = "San Francisco Central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2109,7 +1687,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 148,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(916),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6828),
                             IsDeleted = false,
                             Name = "Piantini",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2118,7 +1696,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 149,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(917),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6829),
                             IsDeleted = false,
                             Name = "Ventura Grullon",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2127,7 +1705,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 150,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(917),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6830),
                             IsDeleted = false,
                             Name = "Cotuí",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2136,7 +1714,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 151,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(917),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6831),
                             IsDeleted = false,
                             Name = "La Bija",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2145,7 +1723,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 152,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(918),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6831),
                             IsDeleted = false,
                             Name = "La Espínola",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2154,7 +1732,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 153,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(918),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6832),
                             IsDeleted = false,
                             Name = "La Enea",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2163,7 +1741,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 154,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(919),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6833),
                             IsDeleted = false,
                             Name = "La Soledad",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2172,7 +1750,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 155,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(919),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6833),
                             IsDeleted = false,
                             Name = "Vista del Valle SFM",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2181,7 +1759,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 156,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(920),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6834),
                             IsDeleted = false,
                             Name = "Pimentel",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2190,7 +1768,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 157,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(920),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6834),
                             IsDeleted = false,
                             Name = "Villa Arriba",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2199,7 +1777,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 158,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(920),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6835),
                             IsDeleted = false,
                             Name = "El Indio",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2208,7 +1786,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 159,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(921),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6835),
                             IsDeleted = false,
                             Name = "Castillo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2217,7 +1795,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 160,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(921),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6836),
                             IsDeleted = false,
                             Name = "Bonao",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2226,7 +1804,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 161,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(922),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6837),
                             IsDeleted = false,
                             Name = "La Vega",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2235,7 +1813,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 162,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(922),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6837),
                             IsDeleted = false,
                             Name = "Palmarito",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2244,7 +1822,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 163,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(922),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6838),
                             IsDeleted = false,
                             Name = "Salcedo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2253,7 +1831,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 164,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(923),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6838),
                             IsDeleted = false,
                             Name = "Bayacanes",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2262,7 +1840,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 165,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(923),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6839),
                             IsDeleted = false,
                             Name = "Moca",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2271,7 +1849,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 166,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(924),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6840),
                             IsDeleted = false,
                             Name = "IML de la Majagua",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2280,7 +1858,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 167,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(924),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6840),
                             IsDeleted = false,
                             Name = "IML de Sánchez",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2289,7 +1867,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 168,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(924),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6841),
                             IsDeleted = false,
                             Name = "IML de las Terrenas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2298,7 +1876,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 169,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(925),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6842),
                             IsDeleted = false,
                             Name = "IML de Samaná",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2307,7 +1885,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 170,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(925),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6842),
                             IsDeleted = false,
                             Name = "IML de los Corales",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2316,7 +1894,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 171,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(926),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6843),
                             IsDeleted = false,
                             Name = "IML de Arroyo Hondo",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2325,7 +1903,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 172,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(926),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6843),
                             IsDeleted = false,
                             Name = "IML de la Ceiba",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2334,7 +1912,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 173,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(926),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6844),
                             IsDeleted = false,
                             Name = "IML de la Pascuala",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2343,7 +1921,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 174,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(927),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6845),
                             IsDeleted = false,
                             Name = "IML de los Robalos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2352,7 +1930,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 175,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(927),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6845),
                             IsDeleted = false,
                             Name = "IML del Catey",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2361,7 +1939,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 176,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(928),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6846),
                             IsDeleted = false,
                             Name = "IML del Limón",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2370,7 +1948,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 177,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(928),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6846),
                             IsDeleted = false,
                             Name = "Nagua central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2379,7 +1957,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 178,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(929),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6847),
                             IsDeleted = false,
                             Name = "Telanza",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2388,7 +1966,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 179,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(929),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6848),
                             IsDeleted = false,
                             Name = "Km3",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2397,7 +1975,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 180,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(929),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6848),
                             IsDeleted = false,
                             Name = "El Yayal",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2406,7 +1984,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 181,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(930),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6849),
                             IsDeleted = false,
                             Name = "Matancitas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2415,7 +1993,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 182,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(930),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6850),
                             IsDeleted = false,
                             Name = "Sabaneta",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2424,7 +2002,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 183,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(931),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6850),
                             IsDeleted = false,
                             Name = "Las 500tas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2433,7 +2011,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 184,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(931),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6851),
                             IsDeleted = false,
                             Name = "Bella Vista",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2442,7 +2020,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 185,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(931),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6851),
                             IsDeleted = false,
                             Name = "El Juncal",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2451,7 +2029,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 186,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(932),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6852),
                             IsDeleted = false,
                             Name = "Baoba del piñal",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2460,7 +2038,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 187,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(932),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6853),
                             IsDeleted = false,
                             Name = "Baoba central",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2469,7 +2047,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 188,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(933),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6853),
                             IsDeleted = false,
                             Name = "La Entrada",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2478,7 +2056,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 189,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(933),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6854),
                             IsDeleted = false,
                             Name = "Los rincones",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2487,7 +2065,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 190,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(933),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6855),
                             IsDeleted = false,
                             Name = "Los naranjos",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2496,7 +2074,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 191,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(934),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6855),
                             IsDeleted = false,
                             Name = "Las gordas",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2505,7 +2083,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 192,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(934),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6856),
                             IsDeleted = false,
                             Name = "Boba",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2514,7 +2092,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 193,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(935),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6856),
                             IsDeleted = false,
                             Name = "La Cienega",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2523,7 +2101,7 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                         {
                             ID = 194,
                             Conference = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(935),
+                            CreatedAt = new DateTime(2025, 8, 19, 2, 15, 13, 187, DateTimeKind.Utc).AddTicks(6857),
                             IsDeleted = false,
                             Name = "Abreu",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -2653,63 +2231,6 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                     b.HasKey("ID");
 
                     b.ToTable("Habitaciones", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(1818),
-                            CurrentCapacity = 0,
-                            Gender = "Hombre",
-                            IsDeleted = false,
-                            MaxCapacity = 18,
-                            Name = "Dormitorio Izquierda",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 2,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(4984),
-                            CurrentCapacity = 0,
-                            Gender = "Hombre",
-                            IsDeleted = false,
-                            MaxCapacity = 38,
-                            Name = "Piso 3",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 3,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5028),
-                            CurrentCapacity = 0,
-                            Gender = "Hombre",
-                            IsDeleted = false,
-                            MaxCapacity = 12,
-                            Name = "Dormitorio Izquierda",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 4,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5125),
-                            CurrentCapacity = 0,
-                            Gender = "Hombre",
-                            IsDeleted = false,
-                            MaxCapacity = 25,
-                            Name = "Habitación baja",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            ID = 5,
-                            CreatedAt = new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5134),
-                            CurrentCapacity = 0,
-                            Gender = "Hombre",
-                            IsDeleted = false,
-                            MaxCapacity = 5,
-                            Name = "Habitación baja",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SMJRegisterAPIV2.Entities.User", b =>

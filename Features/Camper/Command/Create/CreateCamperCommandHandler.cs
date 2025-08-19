@@ -40,7 +40,7 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
             if (request.Camper.RoomId == 0)
                 camper.RoomId = null;
 
-            var pricePerDay = 600m;
+            var pricePerDay = 1075m;
             camper.TotalAmount = CalculateAmount(camper.ArrivedTimeSlot, pricePerDay);
 
             if (camper.IsGrant && request.Camper.GrantedAmount > 0)
