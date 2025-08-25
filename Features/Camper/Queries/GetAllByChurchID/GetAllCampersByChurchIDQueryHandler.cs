@@ -12,6 +12,7 @@ public class GetAllCampersByChurchIdQueryHandler(IMapper mapper, ICamperReposito
     public async Task<List<CamperDTO>> Handle(GetAllCampersByChurchIdQuery request, CancellationToken cancellationToken)
     {
         var list = await repository.GetAllByChurchIDAsync(request.ChurchId);
-        return mapper.Map<List<CamperDTO>>(list);
+        var sortedList =  list.OrderByDescending(x => x.CreatedAt);
+        return mapper.Map<List<CamperDTO>>(sortedList);
     }
 }

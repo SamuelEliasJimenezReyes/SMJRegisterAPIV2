@@ -1,9 +1,5 @@
-﻿using System.Globalization;
-using AutoMapper;
-using Humanizer;
+﻿using AutoMapper;
 using MediatR;
-using SMJRegisterAPIV2.Database.Contexts;
-using SMJRegisterAPIV2.Features.Common;
 using SMJRegisterAPIV2.Features.Camper.Dtos;
 using SMJRegisterAPIV2.Features.Camper.Repository;
 
@@ -15,7 +11,7 @@ public class GetAllCampersQueryHandler(ICamperRepository repository, IMapper map
     public async Task<IList<CamperSimpleDto>> Handle(GetAllCampersQuery request, CancellationToken cancellationToken)
     {
         var list = await repository.GetAllAsync();
-        var mapped =  mapper.Map<IList<CamperSimpleDto>>(list);
-        return mapped;
+        var sortedList =  list.OrderByDescending(x => x.CreatedAt);
+        return  mapper.Map<IList<CamperSimpleDto>>(sortedList);
     }
 }
