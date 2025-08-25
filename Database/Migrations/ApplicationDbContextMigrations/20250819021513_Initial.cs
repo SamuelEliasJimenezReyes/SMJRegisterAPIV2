@@ -528,46 +528,6 @@ namespace SMJRegisterAPIV2.Database.Migrations.ApplicationDbContextMigrations
                     { 193, 3, new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(935), false, "La Cienega", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 194, 3, new DateTime(2025, 8, 17, 4, 43, 47, 752, DateTimeKind.Utc).AddTicks(935), false, "Abreu", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
-
-            migrationBuilder.InsertData(
-                table: "Habitaciones",
-                columns: new[] { "ID", "CreatedAt", "CapacidadActual", "Genero", "IsDeleted", "CapacidadMaxima", "NombreHabitacion", "UpdatedAt" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(1818), 0, "Hombre", false, 18, "Dormitorio Izquierda", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(4984), 0, "Hombre", false, 38, "Piso 3", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5028), 0, "Hombre", false, 12, "Dormitorio Izquierda", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5125), 0, "Hombre", false, 25, "Habitación baja", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, new DateTime(2025, 8, 17, 4, 43, 47, 764, DateTimeKind.Utc).AddTicks(5134), 0, "Hombre", false, 5, "Habitación baja", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Campers",
-                columns: new[] { "ID", "Age", "ArrivedTimeSlot", "ChurchId", "Coments", "Condition", "CreatedAt", "DocumentsURL", "Gender", "GrantedCodeId", "IsDeleted", "IsGrant", "IsPaid", "LastName", "Name", "PaidAmount", "PayWay", "PhoneNumber", "RoomId", "ShirtSize", "TotalAmount", "UpdatedAt" },
-                values: new object[,]
-                {
-                    { 1, 0, 0, 37, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 758, DateTimeKind.Utc).AddTicks(4801), null, 2, null, false, false, false, "Pagan", "Manuel", 180m, 2, "962160424", null, 1, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 0, 0, 150, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(2552), null, 2, null, false, false, false, "Haro", "Laura", 54m, 1, "941-923-726", null, 5, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 0, 0, 33, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(3800), null, 2, null, false, false, false, "Pagan", "Jorge", 1796m, 2, "991 622 318", null, 6, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, 0, 0, 43, null, 2, new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(4652), null, 1, null, false, false, false, "Ramos", "Manuel", 530m, 2, "945-192-174", null, 5, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, 0, 0, 130, null, 1, new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(5410), null, 1, null, false, false, false, "Batista", "Ricardo", 1310m, 2, "963 666 009", null, 3, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 6, 0, 0, 193, null, 1, new DateTime(2025, 8, 17, 4, 43, 47, 759, DateTimeKind.Utc).AddTicks(6971), null, 1, null, false, false, false, "Mota", "Jennifer", 2343m, 1, "948 089 213", null, 3, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 7, 0, 0, 45, null, 3, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(1721), null, 1, null, false, false, false, "Gámez", "Laura", 1063m, 2, "979 128 977", null, 2, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 8, 0, 0, 171, null, 3, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(2962), null, 1, null, false, false, false, "Delacrúz", "Jordi", 1828m, 2, "993 653 292", null, 4, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 9, 0, 0, 188, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(3890), null, 2, null, false, false, false, "Véliz", "Josep", 509m, 1, "975522497", null, 6, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 10, 0, 0, 150, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(4816), null, 1, null, false, false, false, "Ontiveros", "Ana", 413m, 2, "933822691", null, 2, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 11, 0, 0, 182, null, 2, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(5816), null, 1, null, false, false, false, "Santiago", "Jennifer", 248m, 2, "906-497-119", null, 1, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 12, 0, 0, 182, null, 2, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(6598), null, 1, null, false, false, false, "Iglesias", "Pedro", 2005m, 1, "931-955-355", null, 5, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 13, 0, 0, 6, null, 3, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(7333), null, 2, null, false, false, false, "Villagómez", "Lorena", 601m, 2, "911 550 816", null, 2, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 14, 0, 0, 114, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(8131), null, 2, null, false, false, false, "Tijerina", "Ana", 875m, 1, "992 871 174", null, 2, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 15, 0, 0, 163, null, 2, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(8841), null, 2, null, false, false, false, "Lara", "Anni", 1007m, 2, "964 973 394", null, 6, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 16, 0, 0, 154, null, 1, new DateTime(2025, 8, 17, 4, 43, 47, 760, DateTimeKind.Utc).AddTicks(9696), null, 2, null, false, false, false, "Mojica", "Ana", 402m, 1, "900442884", null, 4, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 17, 0, 0, 21, null, 1, new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(457), null, 2, null, false, false, false, "Rojas", "Jennifer", 1265m, 1, "958113741", null, 4, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 18, 0, 0, 108, null, 2, new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(1174), null, 1, null, false, false, false, "Ríos", "Roser", 765m, 1, "900-475-130", null, 7, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 19, 0, 0, 43, null, 2, new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(1886), null, 2, null, false, false, false, "Báez", "Lorena", 1952m, 2, "970.779.666", null, 6, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 20, 0, 0, 52, null, 4, new DateTime(2025, 8, 17, 4, 43, 47, 761, DateTimeKind.Utc).AddTicks(2650), null, 1, null, false, false, false, "Balderas", "Roser", 2102m, 2, "906.421.721", null, 2, 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
