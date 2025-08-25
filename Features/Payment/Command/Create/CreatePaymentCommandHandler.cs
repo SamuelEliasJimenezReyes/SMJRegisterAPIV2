@@ -16,21 +16,32 @@ public class CreatePaymentCommandHandler(
 {
     public async Task<CreatePaymentDto> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
     {
-        var payment = mapper.Map<Entities.Payment>(request.Payment);
+        var camper = await camperRepository.GetByIdAsync(request.Payment.CamperId);
         
+        var payment = mapper.Map<Entities.Payment>(request.Payment);
+
         payment.CamperId = request.Payment.CamperId;
         payment.BanksInformationId = request.Payment.BanksInformationId;
         payment.Amount = request.Payment.Amount;
         payment.Coments = request.Payment.Coments;
-        var camper =await camperRepository.GetByIdAsync(request.Payment.CamperId);
+        payment.IsCash = request.Payment.IsCash;
+
         if (request.Payment.Evidence is not null)
         {
             var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
-            var url = await fileStorage.Store("camper-documents",folderName,request.Payment.Evidence);
+            var url = await fileStorage.Store("camper-documents", folderName, request.Payment.Evidence);
             payment.EvidenceURL = url;
         }
+
         await repository.AddAsync(payment);
-        var Dto = mapper.Map<CreatePaymentDto>(payment);
-        return Dto;
+
+        camper.PaidAmount += payment.Amount;
+        if (camper.PaidAmount >= camper.TotalAmount)
+            camper.IsPaid = true;
+
+        await camperRepository.UpdateAsync(camper,camper.ID);
+
+        var dto = mapper.Map<CreatePaymentDto>(payment);
+        return dto;
     }
 }

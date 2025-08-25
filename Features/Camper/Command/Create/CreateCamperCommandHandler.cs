@@ -36,6 +36,7 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
             camper.PayWay = (PayWay)request.Camper.PayType;
             camper.ShirtSize = (ShirtSize)request.Camper.ShirtSize;
             camper.ArrivedTimeSlot = (ArrivedTimeSlot)request.Camper.ArrivedTimeSlot;
+            camper.ArrivedTimeSlot = (ArrivedTimeSlot)request.Camper.ArrivedTimeSlot;
 
             if (request.Camper.RoomId == 0)
                 camper.RoomId = null;
@@ -51,16 +52,7 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
             }
 
             await repository.AddAsync(camper);
-
-            if (request.Camper.Document is not null)
-            {
-                var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
-                var urls = await storage.Store("camper-documents", folderName, request.Camper.Document);
-                camper.DocumentsURL = urls;
-                camper.UpdatedAt = DateTime.UtcNow;
-                await repository.UpdateAsync(camper, camper.ID);
-            }
-
+            
             if (camper.IsGrant && !string.IsNullOrWhiteSpace(request.Camper.Code))
             {
                 var grantedCode = await grantedCodeRepository.GetByCodeAsync(request.Camper.Code);
@@ -74,6 +66,14 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
             }
 
             await transaction.CommitAsync(cancellationToken);
+            if (request.Camper.Document is not null)
+            {
+                var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
+                var urls = await storage.Store("camper-documents", folderName, request.Camper.Document);
+                camper.DocumentsURL = urls;
+                camper.UpdatedAt = DateTime.UtcNow;
+                await repository.UpdateAsync(camper, camper.ID);
+            }
 
             return mapper.Map<CreateCamperDTO>(camper);
         }

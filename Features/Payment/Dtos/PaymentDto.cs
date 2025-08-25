@@ -8,8 +8,9 @@ public class PaymentDto
     public decimal Amount { get; set; }
     public string? EvidenceURL { get; set; }
     public string? Coments { get; set; }
-    
-    public BankInformationDto BanksInformation { get; set; }
+    public bool IsCash { get; set; }
+
+    public BankInformationDto? BanksInformation { get; set; }
     
     public CamperSimpleDto Camper { get; set; }
 }
