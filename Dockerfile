@@ -1,25 +1,16 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 8080 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["SMJRegisterAPIV2.csproj", "./"]
-RUN dotnet restore "SMJRegisterAPIV2.csproj"
+RUN dotnet restore
 COPY . .
-WORKDIR "/src/"
-RUN dotnet build "./SMJRegisterAPIV2.csproj" -c $BUILD_CONFIGURATION -o /app/build
-
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./SMJRegisterAPIV2.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "SMJRegisterAPIV2.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
-
+COPY --from=build /app/publish .
 RUN mkdir -p "/app/wwwroot/camper-documents"
 ENTRYPOINT ["dotnet", "SMJRegisterAPIV2.dll"]
