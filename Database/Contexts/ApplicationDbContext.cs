@@ -49,8 +49,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     private void ApplySeedData(ModelBuilder modelBuilder)
     {
         ChurchSeed.Seed(modelBuilder);
-        CamperSeed.Seed(modelBuilder);
-        RoomSeed.Seed(modelBuilder);
         BankInformationSeed.Seed(modelBuilder);
     }
 }

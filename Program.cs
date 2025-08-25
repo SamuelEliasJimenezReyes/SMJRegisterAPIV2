@@ -217,7 +217,15 @@ app.UseExceptionHandler(cfg =>
         else
         {
             context.Response.StatusCode = 500;
-            await context.Response.WriteAsJsonAsync(new { error = exception?.Message });
+            context.Response.ContentType = "application/json";
+
+            var detail = new
+            {
+                error = exception?.Message,
+                stackTrace = exception?.StackTrace
+            };
+
+            await context.Response.WriteAsJsonAsync(detail);
         }
     });
 });
