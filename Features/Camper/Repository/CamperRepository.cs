@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SMJRegisterAPIV2.Database.Contexts;
+using SMJRegisterAPIV2.Features.Camper.Dtos;
 using SMJRegisterAPIV2.Features.Common;
 
 namespace SMJRegisterAPIV2.Features.Camper.Repository;
@@ -23,8 +24,9 @@ public class CamperRepository(ApplicationDbContext context) :  GenericRepository
             .Where(x=>x.ID == id)
             .FirstOrDefaultAsync();
 
-    
+ 
 
+    
     public async Task<List<Entities.Camper>> GetAllByChurchIDAsync(int churchID)
     => await context.Campers
         .Where(x => x.ChurchId == churchID)
@@ -36,4 +38,20 @@ public class CamperRepository(ApplicationDbContext context) :  GenericRepository
     public async Task<bool> ExistByPhoneNumber(string phoneNumber)
         => await context.Campers.AnyAsync(camper => camper.PhoneNumber == phoneNumber);
 
+    public async Task<List<Entities.Camper>> FindByFilterAsync(string? filter)
+    {
+        if (string.IsNullOrWhiteSpace(filter))
+            return await context.Campers
+                .Include(c => c.Church)
+                .ToListAsync();
+
+        filter = filter.ToLower();
+
+        return await context.Campers
+            .Where(x =>
+                    (x.Name + " " + x.LastName).ToLower().Contains(filter)
+                    || x.PhoneNumber ==filter)
+            .Include(c => c.Church)
+            .ToListAsync();
+    }
 }

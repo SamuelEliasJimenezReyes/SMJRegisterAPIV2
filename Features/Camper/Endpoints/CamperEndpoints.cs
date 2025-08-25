@@ -9,6 +9,7 @@ using SMJRegisterAPIV2.Features.Camper.Queries.GetAll;
 using SMJRegisterAPIV2.Features.Camper.Queries.GetAllByChurchID;
 using SMJRegisterAPIV2.Features.Camper.Queries.GetAllByConference;
 using SMJRegisterAPIV2.Features.Camper.Queries.GetByAllCondition;
+using SMJRegisterAPIV2.Features.Camper.Queries.GetByFilter;
 using SMJRegisterAPIV2.Features.Camper.Queries.GetById;
 
 namespace SMJRegisterAPIV2.Features.Camper.Endpoints;
@@ -26,6 +27,7 @@ public class CamperEndpoints() : CarterModule("/camper")
         app.MapGet("/get-by-church/{churchId:int}", GetAllByChurchId).RequireAuthorization();
         app.MapGet("/get-by-conference/{conference:int}", GetAllByConference).RequireAuthorization();
         app.MapPut("/{id:int}", UpdateCamper).RequireAuthorization();
+        app.MapGet("/search", GetByFilter).RequireAuthorization();
     }
 
     
@@ -84,6 +86,19 @@ public class CamperEndpoints() : CarterModule("/camper")
         var command = new UpdateCamperCommand( dto, id);
         var result = await sender.Send(command);
         return result is null ? TypedResults.NotFound() : TypedResults.Ok(result);
+    }
+    private async Task<Results<Ok<IList<CamperSimpleDto>>, NotFound>> GetByFilter(
+        ISender sender, 
+        [FromQuery] string? filter)
+    {
+        var result = await sender.Send(new GetCamperByFiltersQuery
+        {
+            Filter = filter
+        });
+
+        return result is null || result.Count == 0 
+            ? TypedResults.NotFound() 
+            : TypedResults.Ok(result);
     }
 
 }
