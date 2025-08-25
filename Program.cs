@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using System.Text;
 using Carter;
 using FluentValidation;
@@ -51,7 +50,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
     }
     else 
     {
-        connString = builder.Configuration.GetConnectionString("DefaultConnection");
+        connString = builder.Configuration.GetConnectionString("DevConnection");
     }
 
     opt.UseNpgsql(connString, o => o.EnableRetryOnFailure());
@@ -68,7 +67,7 @@ builder.Services.AddScoped<IGenerateCodeService, GenerateCodeService>();
 builder.Services.AddScoped<IGrantedCodeRepository, GrantedCodeRepository>();
 builder.Services.AddScoped<IBankInformationRepository, BankInformationRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
-builder.Services.AddScoped<IFileStorage, FileStorage>();
+builder.Services.AddSingleton<IFileStorage, FileStorage>();
 builder.Services.AddScoped<ITenantServices, TenantServices>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenServices>();
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
@@ -177,6 +176,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 #endregion
+
 #region Middlewares
 if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Dev")
 {
