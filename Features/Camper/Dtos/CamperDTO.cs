@@ -12,6 +12,7 @@ public class CamperDTO
     public int Age { get; set; }
     public string Coments { get; set; }
     public decimal  PaidAmount { get; set; }
+    public decimal  TotalAmount { get; set; }
     public bool IsGrant { get; set; } 
     public bool IsPaid { get; set; } 
     public string Gender { get; set; }

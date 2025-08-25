@@ -9,6 +9,8 @@ public class CamperSimpleDto
     public string LastName { get; set; }
     public string PhoneNumber { get; set; }
     public bool IsGrant { get; set; } 
+    public decimal  PaidAmount { get; set; }
+    public decimal  TotalAmount { get; set; }
     public string Gender { get; set; }
     public string Condition { get; set; }
     public string PayType { get; set; }
