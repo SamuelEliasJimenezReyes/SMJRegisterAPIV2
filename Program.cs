@@ -50,7 +50,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
     }
     else 
     {
-        connString = builder.Configuration.GetConnectionString("DevConnection");
+        connString = builder.Configuration.GetConnectionString("ProdConnection");
     }
 
     opt.UseNpgsql(connString, o => o.EnableRetryOnFailure());
