@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
+﻿using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
 namespace SMJRegisterAPIV2.Services.FileStore
 {
@@ -176,7 +168,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 if (path.Contains(r2Marker))
                 {
                     var idx = path.IndexOf(r2Marker) + r2Marker.Length;
-                    var after = path.Substring(idx); // starts with {bucket}/...
+                    var after = path.Substring(idx); 
                     var slash = after.IndexOf('/');
                     key = slash >= 0 ? Uri.UnescapeDataString(after.Substring(slash + 1)) : Uri.UnescapeDataString(after);
                 }
@@ -189,7 +181,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 {
                     if (path.Contains($"/{container}/"))
                     {
-                        var idx = path.IndexOf($"/{container}/") + 1; // index at container/...
+                        var idx = path.IndexOf($"/{container}/") + 1;
                         key = Uri.UnescapeDataString(path.Substring(idx));
                     }
                     else
