@@ -11,7 +11,7 @@ public class GetDashboardSummaryQueryHandler(ApplicationDbContext context) : IRe
     {
         var campers = await context.Campers.ToListAsync(cancellationToken);
 
-        var totalCampersPaid = campers.Count(c => c.PaidAmount > 0);
+        var totalCampersPaid = campers.Count(x => x.IsPaid);
         var totalAmountPaid = campers.Sum(c => c.PaidAmount);
         var totalAmountPending = campers.Sum(c => c.TotalAmount - c.PaidAmount);
 

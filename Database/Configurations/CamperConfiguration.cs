@@ -10,9 +10,7 @@ public class CamperConfiguration(Conference tenantConference) : IEntityTypeConfi
     public void Configure(EntityTypeBuilder<Camper> builder)
     {
         builder.ToTable("Campistas");
-        
-    
-        
+  
         builder.HasKey(x => x.ID);
         
         builder.Property(x => x.Name)
