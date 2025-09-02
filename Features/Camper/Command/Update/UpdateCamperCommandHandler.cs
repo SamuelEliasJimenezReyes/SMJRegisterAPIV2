@@ -20,7 +20,7 @@ public class UpdateCamperCommandHandler(
 
         camper.Name = request.Camper.Name;
         camper.LastName = request.Camper.LastName;
-        camper.PaidAmount = request.Camper.PaidAmount;
+        camper.TotalAmount = request.Camper.TotalAmount;
         camper.IsGrant = request.Camper.IsGrant;
         camper.IsPaid = request.Camper.IsPaid;
         camper.Gender = (Entities.Enums.Gender)request.Camper.Gender;
