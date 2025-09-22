@@ -12,6 +12,7 @@ public class GetAllPaymentsQueryHandler(
     public async Task<IList<PaymentDto>> Handle(GetAllPaymentsQuery request, CancellationToken cancellationToken)
     {
         var list = await repository.GetAllAsync();
-        return mapper.Map<IList<PaymentDto>>(list);
+        var sortedList = list.OrderByDescending(x => x.ID);
+        return mapper.Map<IList<PaymentDto>>(sortedList);
     }
 }

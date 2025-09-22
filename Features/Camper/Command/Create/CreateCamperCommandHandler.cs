@@ -91,7 +91,7 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
         return arrivedTimeSlot switch
         {
             ArrivedTimeSlot.SaturdayMorning => 4m * pricePerDay,
-            ArrivedTimeSlot.SaturdayAfternoon => 3.5m * pricePerDay,
+            ArrivedTimeSlot.SaturdayAfternoon => 4m * pricePerDay,
             ArrivedTimeSlot.Sunday => 3m * pricePerDay,
             ArrivedTimeSlot.Monday => 2m * pricePerDay,
             _ => 4m * pricePerDay

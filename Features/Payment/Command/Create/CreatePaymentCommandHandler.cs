@@ -21,7 +21,8 @@ public class CreatePaymentCommandHandler(
         var payment = mapper.Map<Entities.Payment>(request.Payment);
 
         payment.CamperId = request.Payment.CamperId;
-        payment.BanksInformationId = request.Payment.BanksInformationId;
+        if (request.Payment.BanksInformationId == 0)
+                payment.BanksInformationId = null;
         payment.Amount = request.Payment.Amount;
         payment.Coments = request.Payment.Coments;
         payment.IsCash = request.Payment.IsCash;
