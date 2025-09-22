@@ -19,7 +19,7 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
     : IRequestHandler<CreateCamperCommand, CreateCamperDTO>
 {
 
-    public async Task<CreateCamperDTO> Handle(CreateCamperCommand request, CancellationToken cancellationToken)
+  public async Task<CreateCamperDTO> Handle(CreateCamperCommand request, CancellationToken cancellationToken)
 {
     var strategy = context.Database.CreateExecutionStrategy();
 
@@ -36,7 +36,6 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
             camper.PayWay = (PayWay)request.Camper.PayType;
             camper.ShirtSize = (ShirtSize)request.Camper.ShirtSize;
             camper.ArrivedTimeSlot = (ArrivedTimeSlot)request.Camper.ArrivedTimeSlot;
-            camper.ArrivedTimeSlot = (ArrivedTimeSlot)request.Camper.ArrivedTimeSlot;
 
             if (request.Camper.RoomId == 0)
                 camper.RoomId = null;
@@ -52,7 +51,8 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
             }
 
             await repository.AddAsync(camper);
-            
+
+
             if (camper.IsGrant && !string.IsNullOrWhiteSpace(request.Camper.Code))
             {
                 var grantedCode = await grantedCodeRepository.GetByCodeAsync(request.Camper.Code);
@@ -65,7 +65,6 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
                 await repository.UpdateAsync(camper, camper.ID);
             }
 
-            await transaction.CommitAsync(cancellationToken);
             if (request.Camper.Document is not null)
             {
                 var folderName = $"Camper-{camper.ID}-{camper.Name}-{camper.LastName}";
@@ -74,6 +73,8 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
                 camper.UpdatedAt = DateTime.UtcNow;
                 await repository.UpdateAsync(camper, camper.ID);
             }
+
+            await transaction.CommitAsync(cancellationToken);
 
             return mapper.Map<CreateCamperDTO>(camper);
         }
