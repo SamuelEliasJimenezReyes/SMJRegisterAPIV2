@@ -4,7 +4,6 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -185,21 +184,16 @@ if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName =
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "SMJRegister API V1");
-        c.RoutePrefix = string.Empty;
+        c.RoutePrefix = string.Empty; // Swagger en la raíz
     });
 }
 
 app.UseCors();
-
-app.UseForwardedHeaders(new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
-
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapCarter();
+
 app.UseExceptionHandler(cfg =>
 {
     cfg.Run(async context =>
@@ -239,5 +233,5 @@ app.UseExceptionHandler(cfg =>
 #endregion
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Urls.Add($"http://*:{port}");
-app.Urls.Add($"https://*:{port}");
+
 app.Run();
