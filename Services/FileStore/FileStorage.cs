@@ -15,7 +15,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
         private readonly string? _bucket;
         private readonly string? _accountId;
         private readonly bool _publicObjects;
-        private readonly int _signedUrlMinutes;
 
         public FileStorage(IWebHostEnvironment env, IHttpContextAccessor httpContextAccessor)
         {
@@ -30,7 +29,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var secretKey = Environment.GetEnvironmentVariable("R2_SECRET_ACCESS_KEY") ?? throw new ArgumentNullException("R2_SECRET_ACCESS_KEY");
                 _bucket = Environment.GetEnvironmentVariable("R2_BUCKET") ?? throw new ArgumentNullException("R2_BUCKET");
                 _publicObjects = string.Equals(Environment.GetEnvironmentVariable("R2_PUBLIC"), "true", StringComparison.OrdinalIgnoreCase);
-                _signedUrlMinutes = int.TryParse(Environment.GetEnvironmentVariable("SIGNED_URL_MINUTES"), out var m) ? m : 60;
 
                 var creds = new BasicAWSCredentials(accessKey, secretKey);
                 var s3Config = new AmazonS3Config
@@ -40,7 +38,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     AuthenticationRegion = "auto"
                 };
                 _s3Client = new AmazonS3Client(creds, s3Config);
-
             }
             else
             {
@@ -123,30 +120,14 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 }
                 catch
                 {
+                    // ignoramos si falla
                 }
-
-                if (_publicObjects)
-                    uploadReq.CannedACL = S3CannedACL.PublicRead;
 
                 await transferUtil.UploadAsync(uploadReq);
 
-                if (_publicObjects)
-                {
-                    var publicUrl = $"https://{_accountId}.r2.cloudflarestorage.com/{_bucket}/{Uri.EscapeDataString(key)}";
-                    result.Add(publicUrl);
-                }
-                else
-                {
-                    var preReq = new GetPreSignedUrlRequest
-                    {
-                        BucketName = _bucket!,
-                        Key = key,
-                        Verb = HttpVerb.GET,
-                        Expires = DateTime.UtcNow.AddMinutes(_signedUrlMinutes)
-                    };
-                    var url = _s3Client.GetPreSignedURL(preReq);
-                    result.Add(url);
-                }
+                // Construimos URL fija de R2 (privada pero accesible via URL)
+                var fileUrl = $"https://{_accountId}.r2.cloudflarestorage.com/{_bucket}/{Uri.EscapeDataString(key)}";
+                result.Add(fileUrl);
             }
 
             return result;
@@ -172,23 +153,10 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     var slash = after.IndexOf('/');
                     key = slash >= 0 ? Uri.UnescapeDataString(after.Substring(slash + 1)) : Uri.UnescapeDataString(after);
                 }
-                else if (path.Contains(".s3.amazonaws.com/"))
-                {
-                    var idx = path.IndexOf(".s3.amazonaws.com/") + ".s3.amazonaws.com/".Length;
-                    key = Uri.UnescapeDataString(path.Substring(idx));
-                }
                 else
                 {
-                    if (path.Contains($"/{container}/"))
-                    {
-                        var idx = path.IndexOf($"/{container}/") + 1;
-                        key = Uri.UnescapeDataString(path.Substring(idx));
-                    }
-                    else
-                    {
-                        var fileName = Path.GetFileName(path);
-                        key = $"{container}/{fileName}";
-                    }
+                    var fileName = Path.GetFileName(path);
+                    key = $"{container}/{fileName}";
                 }
 
                 try
