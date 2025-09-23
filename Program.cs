@@ -28,32 +28,32 @@ using SMJRegisterAPIV2.Services.User;
 var builder = WebApplication.CreateBuilder(args);
 
 #region DbContext Configurations
-builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    var connString = Environment.GetEnvironmentVariable("DATABASE_URL");
-    
-    if (!string.IsNullOrEmpty(connString))
+    var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+    if (string.IsNullOrEmpty(databaseUrl))
     {
-        var uri = new Uri(connString);
-        var userInfo = uri.UserInfo.Split(':');
-        
-        connString = new NpgsqlConnectionStringBuilder
-        {
-            Host = uri.Host,
-            Port = uri.Port,
-            Database = uri.AbsolutePath.TrimStart('/'),
-            Username = userInfo[0],
-            Password = userInfo[1],
-            SslMode = SslMode.Prefer,
-            TrustServerCertificate = true
-        }.ConnectionString;
-    }
-    else 
-    {
-        connString = builder.Configuration.GetConnectionString("ProdConnection");
+        databaseUrl = builder.Configuration.GetConnectionString("ProdConnection");
     }
 
-    opt.UseNpgsql(connString, o => o.EnableRetryOnFailure());
+    if (databaseUrl.StartsWith("postgresql://") || databaseUrl.StartsWith("postgres://"))
+    {
+        databaseUrl = databaseUrl.Replace("postgresql://", "").Replace("postgres://", "");
+        var parts = databaseUrl.Split([':', '@', '/']);
+        
+        var user = parts[0];
+        var password = parts[1];
+        var host = parts[2];
+        var port = parts[3];
+        var database = parts[4];
+        
+        var connectionString = $"Host={host};Port={port};Database={database};Username={user};Password={password};SSL Mode=Require;Trust Server Certificate=true";
+        options.UseNpgsql(connectionString);
+    }
+    else
+    {
+        options.UseNpgsql(databaseUrl);
+    }
 });
 
 #endregion
@@ -161,11 +161,11 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// using (var scope = app.Services.CreateScope())
-// {
-//     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-//     db.Database.Migrate();
-// }
+ using (var scope = app.Services.CreateScope())
+ {
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+     db.Database.Migrate();
+ }
 
 #region Uso de static files
 app.UseStaticFiles(new StaticFileOptions
