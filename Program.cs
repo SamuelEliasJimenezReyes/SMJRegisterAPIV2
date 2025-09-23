@@ -253,5 +253,27 @@ app.UseExceptionHandler(cfg =>
 
 #endregion
 
+app.MapGet("/health", async (ApplicationDbContext context) =>
+{
+    try
+    {
+        var canConnect = await context.Database.CanConnectAsync();
+        var pendingMigrations = await context.Database.GetPendingMigrationsAsync();
+        
+        return Results.Ok(new 
+        {
+            status = canConnect ? "Healthy" : "Unhealthy",
+            database = canConnect ? "Connected" : "Disconnected",
+            pendingMigrations = pendingMigrations.ToArray(),
+            timestamp = DateTime.UtcNow
+        });
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem($"Unhealthy: {ex.Message}");
+    }
+});
+
+app.MapGet("/test", () => "API is running!");
 
 app.Run();
