@@ -31,31 +31,52 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+    
+    string connectionString;
+    
     if (string.IsNullOrEmpty(databaseUrl))
     {
-        databaseUrl = builder.Configuration.GetConnectionString("ProdConnection");
-    }
-
-    if (databaseUrl.StartsWith("postgresql://") || databaseUrl.StartsWith("postgres://"))
-    {
-        databaseUrl = databaseUrl.Replace("postgresql://", "").Replace("postgres://", "");
-        var parts = databaseUrl.Split([':', '@', '/']);
-        
-        var user = parts[0];
-        var password = parts[1];
-        var host = parts[2];
-        var port = parts[3];
-        var database = parts[4];
-        
-        var connectionString = $"Host={host};Port={port};Database={database};Username={user};Password={password};SSL Mode=Require;Trust Server Certificate=true";
-        options.UseNpgsql(connectionString);
+        // Usar connection string de desarrollo
+        connectionString = builder.Configuration.GetConnectionString("ProdConnection");
     }
     else
     {
-        options.UseNpgsql(databaseUrl);
+        // Parsear DATABASE_URL de Railway correctamente
+        // Formato: postgresql://user:password@host:port/database
+        var uri = new Uri(databaseUrl);
+        var userInfo = uri.UserInfo.Split(':');
+        
+        connectionString = new NpgsqlConnectionStringBuilder
+        {
+            Host = uri.Host,
+            Port = uri.Port,
+            Username = userInfo[0],
+            Password = userInfo[1],
+            Database = uri.AbsolutePath.TrimStart('/'),
+            SslMode = SslMode.Require,
+            TrustServerCertificate = true,
+            Pooling = true,
+            MaxPoolSize = 20,
+            Timeout = 30,
+            CommandTimeout = 30
+        }.ToString();
+    }
+
+    Console.WriteLine($"Using connection string: {connectionString.Replace("Password=", "Password=***")}");
+    
+    options.UseNpgsql(connectionString, npgsqlOptions => 
+    {
+        npgsqlOptions.EnableRetryOnFailure(3, TimeSpan.FromSeconds(5), null);
+        npgsqlOptions.CommandTimeout(30);
+    });
+    
+    // Solo en desarrollo
+    if (builder.Environment.IsDevelopment())
+    {
+        options.EnableSensitiveDataLogging();
+        options.EnableDetailedErrors();
     }
 });
-
 #endregion
 
 #region Repositories and Services
