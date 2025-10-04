@@ -35,7 +35,8 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 {
                     ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com",
                     ForcePathStyle = true,
-                    AuthenticationRegion = "auto",
+                    // 🟢 FIX: Cambiado a 'us-east-1' para compatibilidad de firma con R2
+                    AuthenticationRegion = "us-east-1", 
                     UseHttp = true,
                     BufferSize = 8192,
                     MaxErrorRetry = 2,
@@ -100,6 +101,8 @@ namespace SMJRegisterAPIV2.Services.FileStore
 
                 try
                 {
+                    // await using es seguro aquí ya que PutObjectAsync es el último paso 
+                    // y el stream es OpenReadStream, el SDK debe manejarlo correctamente.
                     await using var stream = file.OpenReadStream();
 
                     var putRequest = new PutObjectRequest
@@ -164,11 +167,18 @@ namespace SMJRegisterAPIV2.Services.FileStore
         {
             if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
 
+            // 💡 Considerar usar la variable de entorno SIGNED_URL_MINUTES para la expiración
+            int expirationMinutes = 1440; // Valor por defecto
+            if (int.TryParse(Environment.GetEnvironmentVariable("SIGNED_URL_MINUTES"), out int envMinutes))
+            {
+                expirationMinutes = envMinutes;
+            }
+
             var request = new GetPreSignedUrlRequest
             {
                 BucketName = _bucket!,
                 Key = key,
-                Expires = DateTime.UtcNow.AddMinutes(minutes),
+                Expires = DateTime.UtcNow.AddMinutes(expirationMinutes),
                 Verb = HttpVerb.GET
             };
 
