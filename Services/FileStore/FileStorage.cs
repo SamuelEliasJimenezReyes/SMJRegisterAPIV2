@@ -30,14 +30,18 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 _bucket = Environment.GetEnvironmentVariable("R2_BUCKET") ?? throw new ArgumentNullException("R2_BUCKET");
                 _publicObjects = string.Equals(Environment.GetEnvironmentVariable("R2_PUBLIC"), "true", StringComparison.OrdinalIgnoreCase);
 
+                // 🚨 PASO DE DEPURACIÓN CRÍTICO: Confirma que las claves son las nuevas
+                Console.WriteLine($"DEBUG R2 Key ID Loaded: {accessKey}");
+                
                 var creds = new BasicAWSCredentials(accessKey, secretKey);
                 var s3Config = new AmazonS3Config
                 {
-                    // 🟢 CORRECCIÓN FINAL DE ENDPOINT: Usamos el formato base S3-compatible
+                    // ✅ ServiceURL: Formato base S3-compatible (recomendado)
                     ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com", 
                     ForcePathStyle = true,
+                    // ✅ AuthenticationRegion: Fijo a 'us-east-1' para firma R2 (la solución a la firma)
                     AuthenticationRegion = "us-east-1", 
-                    UseHttp = false, // 💡 Forzar HTTPS para evitar ambigüedad en el firmado
+                    UseHttp = false, // ✅ Usar HTTPS
                     BufferSize = 8192,
                     MaxErrorRetry = 2,
                     Timeout = TimeSpan.FromSeconds(100)
