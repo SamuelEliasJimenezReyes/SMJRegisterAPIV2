@@ -33,7 +33,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var creds = new BasicAWSCredentials(accessKey, secretKey);
                 var s3Config = new AmazonS3Config
                 {
-                    ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com",
+                    ServiceURL = $"https://{_bucket}.{_accountId}.r2.cloudflarestorage.com",
                     ForcePathStyle = true,
                     AuthenticationRegion = "us-east-1", 
                     UseHttp = true,
