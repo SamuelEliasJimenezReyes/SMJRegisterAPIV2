@@ -35,13 +35,11 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 {
                     ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com",
                     ForcePathStyle = true,
-                    // 🟢 FIX: Cambiado a 'us-east-1' para compatibilidad de firma con R2
                     AuthenticationRegion = "us-east-1", 
                     UseHttp = true,
                     BufferSize = 8192,
                     MaxErrorRetry = 2,
                     Timeout = TimeSpan.FromSeconds(100)
-                    // ReadWriteTimeout no existe - eliminado
                 };
                 _s3Client = new AmazonS3Client(creds, s3Config);
             }
@@ -97,18 +95,16 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var ext = Path.GetExtension(file.FileName);
                 var timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
                 var name = $"{original}_{timestamp}{ext}";
-                var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
+                var key = $"{container}/{folderName}/{name}".Replace("\\", "/"); 
 
                 try
                 {
-                    // await using es seguro aquí ya que PutObjectAsync es el último paso 
-                    // y el stream es OpenReadStream, el SDK debe manejarlo correctamente.
                     await using var stream = file.OpenReadStream();
 
                     var putRequest = new PutObjectRequest
                     {
                         BucketName = _bucket!,
-                        Key = key,
+                        Key = key, 
                         InputStream = stream,
                         ContentType = file.ContentType,
                         CannedACL = S3CannedACL.Private,
@@ -127,11 +123,11 @@ namespace SMJRegisterAPIV2.Services.FileStore
                         Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
                     throw;
                 }
-
             }
 
             return result;
         }
+
 
         public async Task<string> RenameFileIfExists(string container, string folderName, IFormFile file)
             => await Store(container, folderName, file);
@@ -167,7 +163,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
         {
             if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
 
-            // 💡 Considerar usar la variable de entorno SIGNED_URL_MINUTES para la expiración
             int expirationMinutes = 1440; // Valor por defecto
             if (int.TryParse(Environment.GetEnvironmentVariable("SIGNED_URL_MINUTES"), out int envMinutes))
             {
