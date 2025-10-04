@@ -124,6 +124,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                         Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
                     throw;
                 }
+
             }
 
             return result;
