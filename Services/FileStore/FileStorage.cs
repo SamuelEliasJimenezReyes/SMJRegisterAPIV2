@@ -33,10 +33,11 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var creds = new BasicAWSCredentials(accessKey, secretKey);
                 var s3Config = new AmazonS3Config
                 {
-                    ServiceURL = $"https://{_bucket}.{_accountId}.r2.cloudflarestorage.com",
+                    // 🟢 CORRECCIÓN FINAL DE ENDPOINT: Usamos el formato base S3-compatible
+                    ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com", 
                     ForcePathStyle = true,
                     AuthenticationRegion = "us-east-1", 
-                    UseHttp = true,
+                    UseHttp = false, // 💡 Forzar HTTPS para evitar ambigüedad en el firmado
                     BufferSize = 8192,
                     MaxErrorRetry = 2,
                     Timeout = TimeSpan.FromSeconds(100)
