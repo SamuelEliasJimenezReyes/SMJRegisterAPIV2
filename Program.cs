@@ -20,6 +20,7 @@ using SMJRegisterAPIV2.Features.GrantedCode.Repository;
 using SMJRegisterAPIV2.Features.Payment.Repository;
 using SMJRegisterAPIV2.Features.Room.Repository;
 using SMJRegisterAPIV2.Middlewares;
+using SMJRegisterAPIV2.Services;
 using SMJRegisterAPIV2.Services.CodeGenerator;
 using SMJRegisterAPIV2.Services.FileStore;
 using SMJRegisterAPIV2.Services.Tenant;
@@ -91,6 +92,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddSingleton<IFileStorage, FileStorage>();
 builder.Services.AddScoped<ITenantServices, TenantServices>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenServices>();
+builder.Services.AddScoped<MigrationService>();
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 builder.Services.AddHttpContextAccessor();
@@ -182,11 +184,11 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
- using (var scope = app.Services.CreateScope())
- {
-    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-     db.Database.Migrate();
- }
+ // using (var scope = app.Services.CreateScope())
+ // {
+ //    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+ //     db.Database.Migrate();
+ // }
 
 #region Uso de static files
 app.UseStaticFiles(new StaticFileOptions
@@ -271,6 +273,21 @@ app.MapGet("/health", async (ApplicationDbContext context) =>
     catch (Exception ex)
     {
         return Results.Problem($"Unhealthy: {ex.Message}");
+    }
+});
+
+app.MapPost("/api/migrate-documents", async (HttpContext httpContext) =>
+{
+    try
+    {
+        // Obtener el servicio del contenedor de dependencias
+        var migrationService = httpContext.RequestServices.GetRequiredService<MigrationService>();
+        await migrationService.MigrateCamperDocumentsToKeys();
+        return Results.Ok("Migración completada exitosamente");
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem($"Error en migración: {ex.Message}");
     }
 });
 

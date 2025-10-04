@@ -47,8 +47,8 @@ namespace SMJRegisterAPIV2.Services.FileStore
 
         public async Task<string> Store(string container, string folderName, IFormFile file)
         {
-            var urls = await MultipleStore(container, folderName, new[] { file });
-            return urls[0];
+            var keys = await MultipleStore(container, folderName, new[] { file });
+            return keys[0];
         }
 
         public async Task<List<string>> MultipleStore(string container, string folderName, IEnumerable<IFormFile> files)
@@ -74,6 +74,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 await file.CopyToAsync(ms);
                 await File.WriteAllBytesAsync(path, ms.ToArray());
 
+                // En local seguimos devolviendo URL accesible directo
                 var url = $"{_httpContextAccessor.HttpContext!.Request.Scheme}://{_httpContextAccessor.HttpContext!.Request.Host}";
                 result.Add(Path.Combine(url, container, folderName, name).Replace("\\", "/"));
             }
@@ -103,65 +104,37 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     InputStream = ms,
                     BucketName = _bucket!,
                     Key = key,
-                    ContentType = file.ContentType
+                    ContentType = file.ContentType,
+                    CannedACL = S3CannedACL.Private
                 };
 
-                try
-                {
-                    var reqType = uploadReq.GetType();
-
-                    var p1 = reqType.GetProperty("DisablePayloadSigning");
-                    if (p1 != null && p1.CanWrite)
-                        p1.SetValue(uploadReq, true);
-
-                    var p2 = reqType.GetProperty("DisableDefaultChecksumValidation");
-                    if (p2 != null && p2.CanWrite)
-                        p2.SetValue(uploadReq, true);
-                }
-                catch
-                {
-                    // ignoramos si falla
-                }
 
                 await transferUtil.UploadAsync(uploadReq);
 
-                // Construimos URL fija de R2 (privada pero accesible via URL)
-                var fileUrl = $"https://{_accountId}.r2.cloudflarestorage.com/{_bucket}/{Uri.EscapeDataString(key)}";
-                result.Add(fileUrl);
+                result.Add(key);
             }
 
             return result;
         }
 
+
         public async Task<string> RenameFileIfExists(string container, string folderName, IFormFile file)
             => await Store(container, folderName, file);
 
-        public async Task Delete(string? path, string container)
+        public async Task Delete(string? keyOrPath, string container)
         {
-            if (string.IsNullOrWhiteSpace(path)) return;
+            if (string.IsNullOrWhiteSpace(keyOrPath)) return;
 
             if (_useR2)
             {
                 if (_s3Client == null) return;
-                string key;
-
-                var r2Marker = $"{_accountId}.r2.cloudflarestorage.com/";
-                if (path.Contains(r2Marker))
-                {
-                    var idx = path.IndexOf(r2Marker) + r2Marker.Length;
-                    var after = path.Substring(idx); 
-                    var slash = after.IndexOf('/');
-                    key = slash >= 0 ? Uri.UnescapeDataString(after.Substring(slash + 1)) : Uri.UnescapeDataString(after);
-                }
-                else
-                {
-                    var fileName = Path.GetFileName(path);
-                    key = $"{container}/{fileName}";
-                }
-
                 try
                 {
-                    await _s3Client.DeleteObjectAsync(new DeleteObjectRequest { BucketName = _bucket, Key = key });
+                    await _s3Client.DeleteObjectAsync(new DeleteObjectRequest
+                    {
+                        BucketName = _bucket,
+                        Key = keyOrPath
+                    });
                 }
                 catch (AmazonS3Exception aex) when (aex.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -169,9 +142,47 @@ namespace SMJRegisterAPIV2.Services.FileStore
             }
             else
             {
-                var fileName = Path.GetFileName(path);
+                var fileName = Path.GetFileName(keyOrPath);
                 var filePath = Path.Combine(_env.WebRootPath!, container, fileName);
                 if (File.Exists(filePath)) File.Delete(filePath);
+            }
+        }
+
+        public string GetSignedUrl(string key, int minutes = 1440)
+        {
+            if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
+
+            var request = new GetPreSignedUrlRequest
+            {
+                BucketName = _bucket!,
+                Key = key,
+                Expires = DateTime.UtcNow.AddMinutes(minutes),
+                Verb = HttpVerb.GET
+            };
+
+            return _s3Client.GetPreSignedURL(request);
+        }
+
+        public bool IsKey(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return false;
+        
+            return !input.StartsWith("http") && !input.Contains("cloudflarestorage.com");
+        }
+
+        public string ExtractKeyFromUrl(string url)
+        {
+            if (string.IsNullOrEmpty(url)) return url;
+        
+            try
+            {
+                var uri = new Uri(url);
+                var path = uri.AbsolutePath;
+                return path.TrimStart('/');
+            }
+            catch
+            {
+                return url;
             }
         }
     }
