@@ -84,56 +84,57 @@ namespace SMJRegisterAPIV2.Services.FileStore
             }
             return result;
         }
-
-private async Task<List<string>> MultipleStoreToR2(string container, string folderName, IEnumerable<IFormFile> files)
-{
-    if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
-    var result = new List<string>();
-
-    foreach (var file in files)
-    {
-        var original = Path.GetFileNameWithoutExtension(file.FileName)!.ToLower().Trim().Replace(" ", "-");
-        var ext = Path.GetExtension(file.FileName);
-        var timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
-        var name = $"{original}_{timestamp}{ext}";
-        var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
-
-        var ms = new MemoryStream(); 
-        try
+ 
+        private async Task<List<string>> MultipleStoreToR2(string container, string folderName, IEnumerable<IFormFile> files)
         {
-            await file.CopyToAsync(ms);
-            ms.Position = 0; 
+            if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
+            var result = new List<string>();
 
-            var putRequest = new PutObjectRequest
+            foreach (var file in files)
             {
-                BucketName = _bucket!,
-                Key = key,
-                InputStream = ms,
-                ContentType = file.ContentType,
-                CannedACL = S3CannedACL.Private,
-                DisablePayloadSigning = true,
-                UseChunkEncoding = false
-            };
+                var original = Path.GetFileNameWithoutExtension(file.FileName)!.ToLower().Trim().Replace(" ", "-");
+                var ext = Path.GetExtension(file.FileName);
+                var timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
+                var name = $"{original}_{timestamp}{ext}";
+                var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
 
-            var response = await _s3Client.PutObjectAsync(putRequest);
-            result.Add(key);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error uploading to R2 - Key: {key}, Size: {ms.Length}, ContentType: {file.ContentType}");
-            Console.WriteLine($"Exception: {ex.Message}");
-            if (ex.InnerException != null)
-                Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
-            throw;
-        }
-        finally
-        {
-            ms.Dispose(); 
-        }
-    }
+                var ms = new MemoryStream(); 
+                try
+                {
+                    await file.CopyToAsync(ms);
+                    ms.Position = 0;
 
-    return result;
-}
+                    var putRequest = new PutObjectRequest
+                    {
+                        BucketName = _bucket!,
+                        Key = key,
+                        InputStream = ms, // El Stream está activo
+                        ContentType = file.ContentType,
+                        CannedACL = S3CannedACL.Private,
+                        DisablePayloadSigning = true, // Importante para R2
+                        UseChunkEncoding = false // Deshabilitar chunk encoding
+                    };
+
+                    var response = await _s3Client.PutObjectAsync(putRequest); 
+                    result.Add(key);
+                }
+                catch (Exception ex)
+                {
+                    // La excepción ocurre aquí o en el 'await', por lo que el ms.Length ahora es accesible.
+                    Console.WriteLine($"Error uploading to R2 - Key: {key}, Size: {ms.Length}, ContentType: {file.ContentType}");
+                    Console.WriteLine($"Exception: {ex.Message}");
+                    if (ex.InnerException != null)
+                        Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                    throw;
+                }
+                finally
+                {
+                    ms.Dispose(); 
+                }
+            }
+
+            return result;
+        }
         public async Task<string> RenameFileIfExists(string container, string folderName, IFormFile file)
             => await Store(container, folderName, file);
 
