@@ -85,53 +85,55 @@ namespace SMJRegisterAPIV2.Services.FileStore
             return result;
         }
 
-        private async Task<List<string>> MultipleStoreToR2(string container, string folderName, IEnumerable<IFormFile> files)
+private async Task<List<string>> MultipleStoreToR2(string container, string folderName, IEnumerable<IFormFile> files)
+{
+    if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
+    var result = new List<string>();
+
+    foreach (var file in files)
+    {
+        var original = Path.GetFileNameWithoutExtension(file.FileName)!.ToLower().Trim().Replace(" ", "-");
+        var ext = Path.GetExtension(file.FileName);
+        var timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
+        var name = $"{original}_{timestamp}{ext}";
+        var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
+
+        var ms = new MemoryStream(); 
+        try
         {
-            if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
-            var result = new List<string>();
+            await file.CopyToAsync(ms);
+            ms.Position = 0; 
 
-            foreach (var file in files)
+            var putRequest = new PutObjectRequest
             {
-                var original = Path.GetFileNameWithoutExtension(file.FileName)!.ToLower().Trim().Replace(" ", "-");
-                var ext = Path.GetExtension(file.FileName);
-                var timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
-                var name = $"{original}_{timestamp}{ext}";
-                var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
+                BucketName = _bucket!,
+                Key = key,
+                InputStream = ms,
+                ContentType = file.ContentType,
+                CannedACL = S3CannedACL.Private,
+                DisablePayloadSigning = true,
+                UseChunkEncoding = false
+            };
 
-                await using var ms = new MemoryStream();
-                await file.CopyToAsync(ms);
-                ms.Position = 0;
-
-                // ✅ Usar PutObjectRequest directamente
-                var putRequest = new PutObjectRequest
-                {
-                    BucketName = _bucket!,
-                    Key = key,
-                    InputStream = ms,
-                    ContentType = file.ContentType,
-                    CannedACL = S3CannedACL.Private,
-                    DisablePayloadSigning = true, // 🔧 Importante para R2
-                    UseChunkEncoding = false // 🔧 Deshabilitar chunk encoding
-                };
-
-                try
-                {
-                    var response = await _s3Client.PutObjectAsync(putRequest);
-                    result.Add(key);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error uploading to R2 - Key: {key}, Size: {ms.Length}, ContentType: {file.ContentType}");
-                    Console.WriteLine($"Exception: {ex.Message}");
-                    if (ex.InnerException != null)
-                        Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
-                    throw;
-                }
-            }
-
-            return result;
+            var response = await _s3Client.PutObjectAsync(putRequest);
+            result.Add(key);
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error uploading to R2 - Key: {key}, Size: {ms.Length}, ContentType: {file.ContentType}");
+            Console.WriteLine($"Exception: {ex.Message}");
+            if (ex.InnerException != null)
+                Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+            throw;
+        }
+        finally
+        {
+            ms.Dispose(); 
+        }
+    }
 
+    return result;
+}
         public async Task<string> RenameFileIfExists(string container, string folderName, IFormFile file)
             => await Store(container, folderName, file);
 
