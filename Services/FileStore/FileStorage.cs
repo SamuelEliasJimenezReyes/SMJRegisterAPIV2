@@ -35,7 +35,12 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 {
                     ServiceURL = $"https://{_accountId}.r2.cloudflarestorage.com",
                     ForcePathStyle = true,
-                    AuthenticationRegion = "auto"
+                    AuthenticationRegion = "auto",
+                    UseHttp = true,
+                    BufferSize = 8192,
+                    MaxErrorRetry = 2,
+                    Timeout = TimeSpan.FromSeconds(100)
+                    // ReadWriteTimeout no existe - eliminado
                 };
                 _s3Client = new AmazonS3Client(creds, s3Config);
             }
@@ -74,7 +79,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 await file.CopyToAsync(ms);
                 await File.WriteAllBytesAsync(path, ms.ToArray());
 
-                // En local seguimos devolviendo URL accesible directo
                 var url = $"{_httpContextAccessor.HttpContext!.Request.Scheme}://{_httpContextAccessor.HttpContext!.Request.Host}";
                 result.Add(Path.Combine(url, container, folderName, name).Replace("\\", "/"));
             }
@@ -84,7 +88,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
         private async Task<List<string>> MultipleStoreToR2(string container, string folderName, IEnumerable<IFormFile> files)
         {
             if (_s3Client == null) throw new InvalidOperationException("S3 client no inicializado");
-            var transferUtil = new TransferUtility(_s3Client);
             var result = new List<string>();
 
             foreach (var file in files)
@@ -99,24 +102,35 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 await file.CopyToAsync(ms);
                 ms.Position = 0;
 
-                var uploadReq = new TransferUtilityUploadRequest
+                // ✅ Usar PutObjectRequest directamente
+                var putRequest = new PutObjectRequest
                 {
-                    InputStream = ms,
                     BucketName = _bucket!,
                     Key = key,
+                    InputStream = ms,
                     ContentType = file.ContentType,
-                    CannedACL = S3CannedACL.Private
+                    CannedACL = S3CannedACL.Private,
+                    DisablePayloadSigning = true, // 🔧 Importante para R2
+                    UseChunkEncoding = false // 🔧 Deshabilitar chunk encoding
                 };
 
-
-                await transferUtil.UploadAsync(uploadReq);
-
-                result.Add(key);
+                try
+                {
+                    var response = await _s3Client.PutObjectAsync(putRequest);
+                    result.Add(key);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error uploading to R2 - Key: {key}, Size: {ms.Length}, ContentType: {file.ContentType}");
+                    Console.WriteLine($"Exception: {ex.Message}");
+                    if (ex.InnerException != null)
+                        Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                    throw;
+                }
             }
 
             return result;
         }
-
 
         public async Task<string> RenameFileIfExists(string container, string folderName, IFormFile file)
             => await Store(container, folderName, file);
