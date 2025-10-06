@@ -29,8 +29,6 @@ public class CreateCamperCommandHandler(ICamperRepository repository,
 
         try
         {
-            Console.WriteLine($"Incoming Camper: {System.Text.Json.JsonSerializer.Serialize(request.Camper)}");
-
             var camper = mapper.Map<Entities.Camper>(request.Camper);
 
             camper.Gender = (Gender)request.Camper.Gender;
