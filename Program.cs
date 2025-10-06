@@ -92,7 +92,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddSingleton<IFileStorage, FileStorage>();
 builder.Services.AddScoped<ITenantServices, TenantServices>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenServices>();
-builder.Services.AddScoped<MigrationService>();
+// builder.Services.AddScoped<MigrationService>();
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 builder.Services.AddHttpContextAccessor();
@@ -276,20 +276,20 @@ app.MapGet("/health", async (ApplicationDbContext context) =>
     }
 });
 
-app.MapPost("/api/migrate-documents", async (HttpContext httpContext) =>
-{
-    try
-    {
-        // Obtener el servicio del contenedor de dependencias
-        var migrationService = httpContext.RequestServices.GetRequiredService<MigrationService>();
-        await migrationService.MigrateCamperDocumentsToKeys();
-        return Results.Ok("Migración completada exitosamente");
-    }
-    catch (Exception ex)
-    {
-        return Results.Problem($"Error en migración: {ex.Message}");
-    }
-});
+// app.MapPost("/api/migrate-documents", async (HttpContext httpContext) =>
+// {
+//     try
+//     {
+//         // Obtener el servicio del contenedor de dependencias
+//         var migrationService = httpContext.RequestServices.GetRequiredService<MigrationService>();
+//         await migrationService.MigrateCamperDocumentsToKeys();
+//         return Results.Ok("Migración completada exitosamente");
+//     }
+//     catch (Exception ex)
+//     {
+//         return Results.Problem($"Error en migración: {ex.Message}");
+//     }
+// });
 
 app.MapGet("/test", () => "API is running!");
 

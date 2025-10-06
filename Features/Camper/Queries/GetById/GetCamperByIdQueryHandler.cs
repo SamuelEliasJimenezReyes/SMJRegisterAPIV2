@@ -20,20 +20,20 @@ public class GetCamperByIdQueryHandler(
         var entityDb = await repository.GetByIdAsync(request.ID);
         var mapped = mapper.Map<CamperDTO>(entityDb);
 
-        if (!string.IsNullOrEmpty(mapped.DocumentsURL))
-        {
-            try
-            {
-                var key = fileStorage.ExtractKeyFromUrl(mapped.DocumentsURL);
-                var signedUrl = fileStorage.GetSignedUrl(key, 60);
-                mapped.DocumentsURL = signedUrl;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error generating signed URL: {ex.Message}");
-                mapped.DocumentsURL = null;
-            }
-        }
+        // if (!string.IsNullOrEmpty(mapped.DocumentsURL))
+        // {
+        //     try
+        //     {
+        //         var key = fileStorage.ExtractKeyFromUrl(mapped.DocumentsURL);
+        //         var signedUrl = fileStorage.GetSignedUrl(key, 60);
+        //         mapped.DocumentsURL = signedUrl;
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine($"Error generating signed URL: {ex.Message}");
+        //         mapped.DocumentsURL = null;
+        //     }
+        // }
 
         return mapped;
     }
