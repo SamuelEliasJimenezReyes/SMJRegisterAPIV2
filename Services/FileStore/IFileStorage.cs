@@ -14,7 +14,7 @@ public interface IFileStorage
         return await Store(container, folderName, file);
     }
     Task<List<string>> MultipleStore(string container, string folderName, IEnumerable<IFormFile> files);
-    string GetSignedUrl(string key, int minutes = 1440);
-    bool IsKey(string input);
-    string ExtractKeyFromUrl(string url);
+    // string GetSignedUrl(string key, int minutes = 1440);
+    // bool IsKey(string input);
+    // string ExtractKeyFromUrl(string url);
 }
