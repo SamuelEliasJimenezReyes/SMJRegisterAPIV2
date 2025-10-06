@@ -100,32 +100,30 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var ext = Path.GetExtension(file.FileName);
                 var timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
                 var name = $"{original}_{timestamp}{ext}";
-                var key = $"{container}/{folderName}/{name}".Replace("\\", "/"); 
+                var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
+
+                await using var ms = new MemoryStream();
+                await file.CopyToAsync(ms);
+                ms.Position = 0;
+
+                var putRequest = new PutObjectRequest
+                {
+                    BucketName = _bucket!,
+                    Key = key,
+                    InputStream = ms,
+                    ContentType = file.ContentType,
+                    CannedACL = S3CannedACL.Private
+                };
 
                 try
                 {
-                    await using var stream = file.OpenReadStream();
-
-                    var putRequest = new PutObjectRequest
-                    {
-                        BucketName = _bucket!,
-                        Key = key, 
-                        InputStream = stream,
-                        ContentType = file.ContentType,
-                        CannedACL = S3CannedACL.Private,
-                        DisablePayloadSigning = true,
-                        UseChunkEncoding = false
-                    };
-
                     var response = await _s3Client.PutObjectAsync(putRequest);
                     result.Add(key);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error uploading to R2 - Key: {key}, ContentType: {file.ContentType}");
+                    Console.WriteLine($"Error uploading to R2 - Key: {key}, Size: {file.Length}, ContentType: {file.ContentType}");
                     Console.WriteLine($"Exception: {ex.Message}");
-                    if (ex.InnerException != null)
-                        Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
                     throw;
                 }
             }
