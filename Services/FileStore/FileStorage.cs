@@ -112,8 +112,10 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     Key = key,
                     InputStream = ms,
                     ContentType = file.ContentType,
-                    CannedACL = S3CannedACL.Private
+                    CannedACL = S3CannedACL.Private,
+                    DisablePayloadSigning = true 
                 };
+
 
                 try
                 {
