@@ -39,7 +39,6 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     ForcePathStyle = true,
                 };
                 _s3Client = new AmazonS3Client(creds, s3Config);
-
             }
             else
             {
@@ -49,13 +48,15 @@ namespace SMJRegisterAPIV2.Services.FileStore
 
         public async Task<string> Store(string container, string folderName, IFormFile file)
         {
-            var urls = await MultipleStore(container, folderName, new[] { file });
-            return urls[0];
+            var keys = await MultipleStore(container, folderName, new[] { file });
+            return keys[0];
         }
 
         public async Task<List<string>> MultipleStore(string container, string folderName, IEnumerable<IFormFile> files)
         {
-            return _useR2 ? await MultipleStoreToR2(container, folderName, files) : await MultipleStoreToLocal(container, folderName, files);
+            return _useR2
+                ? await MultipleStoreToR2(container, folderName, files)
+                : await MultipleStoreToLocal(container, folderName, files);
         }
 
         private async Task<List<string>> MultipleStoreToLocal(string container, string folderName, IEnumerable<IFormFile> files)
@@ -75,9 +76,9 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 await using var ms = new MemoryStream();
                 await file.CopyToAsync(ms);
                 await File.WriteAllBytesAsync(path, ms.ToArray());
-
-                var url = $"{_httpContextAccessor.HttpContext!.Request.Scheme}://{_httpContextAccessor.HttpContext!.Request.Host}";
-                result.Add(Path.Combine(url, container, folderName, name).Replace("\\", "/"));
+                
+                var key = $"{container}/{folderName}/{name}".Replace("\\", "/");
+                result.Add(key);
             }
             return result;
         }
@@ -108,44 +109,16 @@ namespace SMJRegisterAPIV2.Services.FileStore
                     ContentType = file.ContentType
                 };
 
-                try
-                {
                     var reqType = uploadReq.GetType();
-
-                    var p1 = reqType.GetProperty("DisablePayloadSigning");
-                    if (p1 != null && p1.CanWrite)
-                        p1.SetValue(uploadReq, true);
-
-                    var p2 = reqType.GetProperty("DisableDefaultChecksumValidation");
-                    if (p2 != null && p2.CanWrite)
-                        p2.SetValue(uploadReq, true);
-                }
-                catch
-                {
-                }
-
+                    reqType.GetProperty("DisablePayloadSigning")?.SetValue(uploadReq, true);
+                    reqType.GetProperty("DisableDefaultChecksumValidation")?.SetValue(uploadReq, true);
+                    
                 if (_publicObjects)
                     uploadReq.CannedACL = S3CannedACL.PublicRead;
 
                 await transferUtil.UploadAsync(uploadReq);
 
-                if (_publicObjects)
-                {
-                    var publicUrl = $"https://{_accountId}.r2.cloudflarestorage.com/{_bucket}/{Uri.EscapeDataString(key)}";
-                    result.Add(publicUrl);
-                }
-                else
-                {
-                    var preReq = new GetPreSignedUrlRequest
-                    {
-                        BucketName = _bucket!,
-                        Key = key,
-                        Verb = HttpVerb.GET,
-                        Expires = DateTime.UtcNow.AddMinutes(_signedUrlMinutes)
-                    };
-                    var url = _s3Client.GetPreSignedURL(preReq);
-                    result.Add(url);
-                }
+                result.Add(key);
             }
 
             return result;
@@ -161,34 +134,10 @@ namespace SMJRegisterAPIV2.Services.FileStore
             if (_useR2)
             {
                 if (_s3Client == null) return;
-                string key;
 
-                var r2Marker = $"{_accountId}.r2.cloudflarestorage.com/";
-                if (path.Contains(r2Marker))
-                {
-                    var idx = path.IndexOf(r2Marker) + r2Marker.Length;
-                    var after = path.Substring(idx); // starts with {bucket}/...
-                    var slash = after.IndexOf('/');
-                    key = slash >= 0 ? Uri.UnescapeDataString(after.Substring(slash + 1)) : Uri.UnescapeDataString(after);
-                }
-                else if (path.Contains(".s3.amazonaws.com/"))
-                {
-                    var idx = path.IndexOf(".s3.amazonaws.com/") + ".s3.amazonaws.com/".Length;
-                    key = Uri.UnescapeDataString(path.Substring(idx));
-                }
-                else
-                {
-                    if (path.Contains($"/{container}/"))
-                    {
-                        var idx = path.IndexOf($"/{container}/") + 1; // index at container/...
-                        key = Uri.UnescapeDataString(path.Substring(idx));
-                    }
-                    else
-                    {
-                        var fileName = Path.GetFileName(path);
-                        key = $"{container}/{fileName}";
-                    }
-                }
+                var key = path.StartsWith($"{container}/", StringComparison.OrdinalIgnoreCase)
+                    ? path
+                    : $"{container}/{Path.GetFileName(path)}";
 
                 try
                 {
@@ -196,6 +145,7 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 }
                 catch (AmazonS3Exception aex) when (aex.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
+                    throw new Exception(aex.Message);
                 }
             }
             else
@@ -204,6 +154,28 @@ namespace SMJRegisterAPIV2.Services.FileStore
                 var filePath = Path.Combine(_env.WebRootPath!, container, fileName);
                 if (File.Exists(filePath)) File.Delete(filePath);
             }
+        }
+
+        public string GetSignedUrl(string key, int minutes = 60)
+        {
+            if (!_useR2 || _s3Client == null) return key;
+
+            var preReq = new GetPreSignedUrlRequest
+            {
+                BucketName = _bucket!,
+                Key = key,
+                Verb = HttpVerb.GET,
+                Expires = DateTime.UtcNow.AddMinutes(minutes)
+            };
+            return _s3Client.GetPreSignedURL(preReq);
+        }
+
+        public string ExtractKeyFromUrl(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url)) return string.Empty;
+
+            var parts = url.Split(new[] { ".com/" }, StringSplitOptions.None);
+            return parts.Length > 1 ? Uri.UnescapeDataString(parts[1]) : url;
         }
     }
 }

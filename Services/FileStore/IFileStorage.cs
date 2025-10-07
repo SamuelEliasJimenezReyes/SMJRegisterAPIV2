@@ -1,20 +1,21 @@
-﻿namespace SMJRegisterAPIV2.Services.FileStore;
-
-public interface IFileStorage
+﻿namespace SMJRegisterAPIV2.Services.FileStore
 {
-    Task Delete(string? path, string container);
-
-    Task<string> Store(string container, string folderName, IFormFile file);
-
-    Task<string> RenameFileIfExists(string container, string folderName, IFormFile file);
-
-    async Task<string> Edit(string path, string container, string folderName, IFormFile file)
+    public interface IFileStorage
     {
-        await Delete(path, container);
-        return await Store(container, folderName, file);
+        Task Delete(string? path, string container);
+
+        Task<string> Store(string container, string folderName, IFormFile file);
+
+        Task<string> RenameFileIfExists(string container, string folderName, IFormFile file);
+
+        async Task<string> Edit(string path, string container, string folderName, IFormFile file)
+        {
+            await Delete(path, container);
+            return await Store(container, folderName, file);
+        }
+
+        Task<List<string>> MultipleStore(string container, string folderName, IEnumerable<IFormFile> files);
+        string GetSignedUrl(string key, int minutes = 60);
+        string ExtractKeyFromUrl(string url);
     }
-    Task<List<string>> MultipleStore(string container, string folderName, IEnumerable<IFormFile> files);
-    // string GetSignedUrl(string key, int minutes = 1440);
-    // bool IsKey(string input);
-    // string ExtractKeyFromUrl(string url);
 }
