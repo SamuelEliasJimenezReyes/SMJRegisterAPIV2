@@ -172,10 +172,24 @@ namespace SMJRegisterAPIV2.Services.FileStore
 
         public string ExtractKeyFromUrl(string url)
         {
-            if (string.IsNullOrWhiteSpace(url)) return string.Empty;
+            if (string.IsNullOrWhiteSpace(url))
+                return url;
 
-            var parts = url.Split(new[] { ".com/" }, StringSplitOptions.None);
-            return parts.Length > 1 ? Uri.UnescapeDataString(parts[1]) : url;
+            try
+            {
+                var uri = new Uri(url);
+                var path = uri.AbsolutePath.TrimStart('/');
+                var decodedPath = Uri.UnescapeDataString(path);
+                if (decodedPath.StartsWith("smj-register/smj-register/"))
+                    decodedPath = decodedPath.Replace("smj-register/smj-register/", "smj-register/");
+
+                return decodedPath;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException($"Error al procesar la URL '{url}': {ex.Message}", ex);
+            }
         }
+
     }
 }
