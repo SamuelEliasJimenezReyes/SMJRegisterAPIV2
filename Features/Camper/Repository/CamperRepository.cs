@@ -18,11 +18,12 @@ public class CamperRepository(ApplicationDbContext context) :  GenericRepository
 
     public override async Task<Entities.Camper> GetByIdAsync(int id)
         => await context.Campers
-            .Include(c=>c.Church)
+            .AsNoTracking()
+            .Include(c => c.Church)
             .Include(c => c.Room)
-            .Include(c=>c.GrantedCode)
-            .Where(x=>x.ID == id)
-            .FirstOrDefaultAsync();
+            .Include(c => c.GrantedCode)
+            .FirstOrDefaultAsync(x => x.ID == id);
+
 
  
 

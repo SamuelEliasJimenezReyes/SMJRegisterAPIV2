@@ -17,11 +17,11 @@ public class GetCamperByIdQueryHandler(
         var entityDb = await repository.GetByIdAsync(request.ID);
         var mapped = mapper.Map<CamperDTO>(entityDb);
 
-        if (!string.IsNullOrEmpty(mapped.DocumentsURL))
+        if (!string.IsNullOrWhiteSpace(mapped.DocumentsURL))
         {
             try
             {
-                var key = fileStorage.ExtractKeyFromUrl(mapped.DocumentsURL);
+                var key = fileStorage.ExtractKeyFromUrl(mapped.DocumentsURL.Trim());
                 var signedUrl = fileStorage.GetSignedUrl(key, 5);
                 mapped.DocumentsURL = signedUrl;
             }
@@ -31,6 +31,7 @@ public class GetCamperByIdQueryHandler(
                 mapped.DocumentsURL = null;
             }
         }
+
 
         return mapped;
     }

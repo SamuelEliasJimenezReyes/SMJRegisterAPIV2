@@ -15,7 +15,8 @@ public class CamperProfile : Profile
             .ForMember(dest=>dest.GrantedCode, opt=>opt.MapFrom(
                 src=>src.GrantedCode))
             .ForMember(dest=>dest.Room,opt=>opt.MapFrom(
-                src=>src.Room));
+                src=>src.Room))
+            ;
         
         CreateMap<Entities.Camper, CreateCamperDTO>();
         
